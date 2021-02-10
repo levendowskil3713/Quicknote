@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bold Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BulletPoints.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drawing Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hyperlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Italic Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Numbering.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotate Image Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text size decrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text size increase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Underline Icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Underline Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
