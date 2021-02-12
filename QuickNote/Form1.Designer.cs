@@ -113,7 +113,7 @@ namespace QuickNote
       // 
       this.toolStripButton1.AutoSize = false;
       this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton1.Image = global::QuickNote.Properties.Resources.Save_Icon;
+      this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
       this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton1.Name = "toolStripButton1";
       this.toolStripButton1.Size = new System.Drawing.Size(35, 35);
@@ -139,7 +139,7 @@ namespace QuickNote
       // 
       this.toolStripSplitButton5.AutoSize = false;
       this.toolStripSplitButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripSplitButton5.Image = global::QuickNote.Properties.Resources.text_size_increase;
+      this.toolStripSplitButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton5.Image")));
       this.toolStripSplitButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripSplitButton5.Name = "toolStripSplitButton5";
       this.toolStripSplitButton5.Size = new System.Drawing.Size(70, 35);
@@ -149,7 +149,7 @@ namespace QuickNote
       // 
       this.toolStripSplitButton6.AutoSize = false;
       this.toolStripSplitButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripSplitButton6.Image = global::QuickNote.Properties.Resources.text_size_increase;
+      this.toolStripSplitButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton6.Image")));
       this.toolStripSplitButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripSplitButton6.Name = "toolStripSplitButton6";
       this.toolStripSplitButton6.Size = new System.Drawing.Size(70, 35);
@@ -159,7 +159,7 @@ namespace QuickNote
       // 
       this.toolStripButton3.AutoSize = false;
       this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton3.Image = global::QuickNote.Properties.Resources.Bold_Icon;
+      this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
       this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton3.Name = "toolStripButton3";
       this.toolStripButton3.Size = new System.Drawing.Size(35, 35);
@@ -169,7 +169,7 @@ namespace QuickNote
       // 
       this.toolStripButton4.AutoSize = false;
       this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton4.Image = global::QuickNote.Properties.Resources.Underline_Icon;
+      this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
       this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton4.Name = "toolStripButton4";
       this.toolStripButton4.Size = new System.Drawing.Size(35, 35);
@@ -179,7 +179,7 @@ namespace QuickNote
       // 
       this.toolStripButton5.AutoSize = false;
       this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton5.Image = global::QuickNote.Properties.Resources.Italic_Icon;
+      this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
       this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton5.Name = "toolStripButton5";
       this.toolStripButton5.Size = new System.Drawing.Size(35, 35);
@@ -205,7 +205,7 @@ namespace QuickNote
       // 
       this.toolStripButton7.AutoSize = false;
       this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton7.Image = global::QuickNote.Properties.Resources.Drawing_Icon;
+      this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
       this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton7.Name = "toolStripButton7";
       this.toolStripButton7.Size = new System.Drawing.Size(35, 35);
@@ -275,7 +275,7 @@ namespace QuickNote
       // 
       this.toolStripButton11.AutoSize = false;
       this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton11.Image = global::QuickNote.Properties.Resources.Hyperlink;
+      this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
       this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton11.Name = "toolStripButton11";
       this.toolStripButton11.Size = new System.Drawing.Size(35, 35);
