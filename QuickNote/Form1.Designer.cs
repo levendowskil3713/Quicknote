@@ -304,6 +304,7 @@ namespace QuickNote
       this.ClientSize = new System.Drawing.Size(1182, 977);
       this.Controls.Add(this.MainTextBox);
       this.Controls.Add(this.toolStrip1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.Name = "Form1";
       this.Text = "Form1";
@@ -339,6 +340,6 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton5;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton6;
-    }
+  }
 }
 
