@@ -53,6 +53,8 @@ namespace QuickNote
       this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
       this.toolStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -89,6 +91,8 @@ namespace QuickNote
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripButton5,
+            this.toolStripButton13,
+            this.toolStripButton14,
             this.toolStripSeparator2,
             this.toolStripButton6,
             this.toolStripButton7,
@@ -296,6 +300,24 @@ namespace QuickNote
       this.toolStripButton12.Size = new System.Drawing.Size(35, 35);
       this.toolStripButton12.Text = "toolStripButton12";
       // 
+      // toolStripButton13
+      // 
+      this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
+      this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton13.Name = "toolStripButton13";
+      this.toolStripButton13.Size = new System.Drawing.Size(29, 35);
+      this.toolStripButton13.Text = "toolStripButton13";
+      // 
+      // toolStripButton14
+      // 
+      this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.toolStripButton14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton14.Image")));
+      this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.toolStripButton14.Name = "toolStripButton14";
+      this.toolStripButton14.Size = new System.Drawing.Size(29, 35);
+      this.toolStripButton14.Text = "toolStripButton14";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,6 +362,8 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton5;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton6;
+    private System.Windows.Forms.ToolStripButton toolStripButton13;
+    private System.Windows.Forms.ToolStripButton toolStripButton14;
   }
 }
 
