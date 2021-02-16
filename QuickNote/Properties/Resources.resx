@@ -121,32 +121,14 @@
   <data name="Bold_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bold Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BulletPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BulletPoints.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Drawing_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Drawing Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Hyperlink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Hyperlink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Italic_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Italic Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Numbering" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Numbering.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Rotate_Image_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rotate Image Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Save_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="text_size_decrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text size decrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="text_size_increase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text size increase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Underline_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Underline Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
