@@ -206,6 +206,7 @@ namespace QuickNote
       this.BoldButton.Name = "BoldButton";
       this.BoldButton.Size = new System.Drawing.Size(35, 35);
       this.BoldButton.Text = "Bold";
+      this.BoldButton.Click += new System.EventHandler(this.BoldButton_Click);
       // 
       // UnderlineButton
       // 
@@ -216,6 +217,7 @@ namespace QuickNote
       this.UnderlineButton.Name = "UnderlineButton";
       this.UnderlineButton.Size = new System.Drawing.Size(35, 35);
       this.UnderlineButton.Text = "Underline";
+      this.UnderlineButton.Click += new System.EventHandler(this.UnderlineButton_Click);
       // 
       // ItalicsButton
       // 
@@ -226,6 +228,7 @@ namespace QuickNote
       this.ItalicsButton.Name = "ItalicsButton";
       this.ItalicsButton.Size = new System.Drawing.Size(35, 35);
       this.ItalicsButton.Text = "Italics";
+      this.ItalicsButton.Click += new System.EventHandler(this.ItalicsButton_Click);
       // 
       // BulletButton
       // 
