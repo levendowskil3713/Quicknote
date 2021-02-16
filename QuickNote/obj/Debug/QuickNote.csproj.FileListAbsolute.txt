@@ -12,9 +12,9 @@ C:\Programming\QuickNote\Quicknote\QuickNote\bin\Debug\QuickNote.exe.config
 C:\Programming\QuickNote\Quicknote\QuickNote\bin\Debug\QuickNote.exe
 C:\Programming\QuickNote\Quicknote\QuickNote\bin\Debug\QuickNote.pdb
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.csprojAssemblyReference.cache
-C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.Form1.resources
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.Properties.Resources.resources
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.csproj.GenerateResource.cache
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.csproj.CoreCompileInputs.cache
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.exe
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.pdb
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.MainForm.resources
