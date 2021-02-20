@@ -32,17 +32,20 @@ namespace QuickNote
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       this.MainTextBox = new System.Windows.Forms.RichTextBox();
       this.MainToolStrip = new System.Windows.Forms.ToolStrip();
-      this.SaveButton = new System.Windows.Forms.ToolStripButton();
-      this.LoadButton = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.FontStyleComboBox = new System.Windows.Forms.ToolStripComboBox();
       this.FontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.SaveButton = new System.Windows.Forms.ToolStripButton();
+      this.LoadButton = new System.Windows.Forms.ToolStripButton();
       this.BoldButton = new System.Windows.Forms.ToolStripButton();
       this.UnderlineButton = new System.Windows.Forms.ToolStripButton();
       this.ItalicsButton = new System.Windows.Forms.ToolStripButton();
       this.BulletButton = new System.Windows.Forms.ToolStripButton();
       this.NumberButton = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.CursorButton = new System.Windows.Forms.ToolStripButton();
       this.DrawButton = new System.Windows.Forms.ToolStripButton();
       this.EraserButton = new System.Windows.Forms.ToolStripButton();
@@ -56,12 +59,9 @@ namespace QuickNote
       this.pxToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
       this.pxToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
       this.pxToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ImportImageButton = new System.Windows.Forms.ToolStripButton();
       this.EditImageButton = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       this.HyperlinkButton = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.CalendarButton = new System.Windows.Forms.ToolStripButton();
       this.MainToolStrip.SuspendLayout();
       this.SuspendLayout();
@@ -80,6 +80,7 @@ namespace QuickNote
       this.MainTextBox.Size = new System.Drawing.Size(1182, 939);
       this.MainTextBox.TabIndex = 0;
       this.MainTextBox.Text = "";
+      this.MainTextBox.SelectionChanged += new System.EventHandler(this.MainTextBox_SelectionChanged);
       // 
       // MainToolStrip
       // 
@@ -121,26 +122,6 @@ namespace QuickNote
       this.MainToolStrip.TabIndex = 1;
       this.MainToolStrip.Text = "MainToolStrip";
       // 
-      // SaveButton
-      // 
-      this.SaveButton.AutoSize = false;
-      this.SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.SaveButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveButton.Image")));
-      this.SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.SaveButton.Name = "SaveButton";
-      this.SaveButton.Size = new System.Drawing.Size(35, 35);
-      this.SaveButton.Text = "Save";
-      // 
-      // LoadButton
-      // 
-      this.LoadButton.AutoSize = false;
-      this.LoadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.LoadButton.Image = ((System.Drawing.Image)(resources.GetObject("LoadButton.Image")));
-      this.LoadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.LoadButton.Name = "LoadButton";
-      this.LoadButton.Size = new System.Drawing.Size(35, 35);
-      this.LoadButton.Text = "Load";
-      // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -178,9 +159,50 @@ namespace QuickNote
       this.FontSizeComboBox.Text = "Font Size";
       this.FontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.FontSizeComboBox_SelectedIndexChanged);
       // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
+      // 
+      // toolStripSeparator3
+      // 
+      this.toolStripSeparator3.Name = "toolStripSeparator3";
+      this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
+      // 
+      // toolStripSeparator4
+      // 
+      this.toolStripSeparator4.Name = "toolStripSeparator4";
+      this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
+      // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
+      // 
+      // SaveButton
+      // 
+      this.SaveButton.AutoSize = false;
+      this.SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.SaveButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveButton.Image")));
+      this.SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.SaveButton.Name = "SaveButton";
+      this.SaveButton.Size = new System.Drawing.Size(35, 35);
+      this.SaveButton.Text = "Save";
+      // 
+      // LoadButton
+      // 
+      this.LoadButton.AutoSize = false;
+      this.LoadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.LoadButton.Image = ((System.Drawing.Image)(resources.GetObject("LoadButton.Image")));
+      this.LoadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.LoadButton.Name = "LoadButton";
+      this.LoadButton.Size = new System.Drawing.Size(35, 35);
+      this.LoadButton.Text = "Load";
+      // 
       // BoldButton
       // 
       this.BoldButton.AutoSize = false;
+      this.BoldButton.BackColor = System.Drawing.Color.White;
       this.BoldButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.BoldButton.Image = ((System.Drawing.Image)(resources.GetObject("BoldButton.Image")));
       this.BoldButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -228,11 +250,6 @@ namespace QuickNote
       this.NumberButton.Name = "NumberButton";
       this.NumberButton.Size = new System.Drawing.Size(29, 35);
       this.NumberButton.Text = "Numbered List";
-      // 
-      // toolStripSeparator2
-      // 
-      this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
       // 
       // CursorButton
       // 
@@ -348,11 +365,6 @@ namespace QuickNote
       this.pxToolStripMenuItem8.Size = new System.Drawing.Size(131, 28);
       this.pxToolStripMenuItem8.Text = "24px";
       // 
-      // toolStripSeparator3
-      // 
-      this.toolStripSeparator3.Name = "toolStripSeparator3";
-      this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
-      // 
       // ImportImageButton
       // 
       this.ImportImageButton.AutoSize = false;
@@ -373,11 +385,6 @@ namespace QuickNote
       this.EditImageButton.Size = new System.Drawing.Size(35, 35);
       this.EditImageButton.Text = "Edit Image";
       // 
-      // toolStripSeparator4
-      // 
-      this.toolStripSeparator4.Name = "toolStripSeparator4";
-      this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
-      // 
       // HyperlinkButton
       // 
       this.HyperlinkButton.AutoSize = false;
@@ -387,11 +394,6 @@ namespace QuickNote
       this.HyperlinkButton.Name = "HyperlinkButton";
       this.HyperlinkButton.Size = new System.Drawing.Size(35, 35);
       this.HyperlinkButton.Text = "Embed Hyperlink";
-      // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
       // 
       // CalendarButton
       // 
