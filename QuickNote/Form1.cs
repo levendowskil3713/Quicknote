@@ -69,5 +69,19 @@ namespace QuickNote
         MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, MainTextBox.Font.Size, MainTextBox.SelectionFont.Style | FontStyle.Italic);
       }
     }
+
+    private void FontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      try
+      {
+        float fontSize = float.Parse(FontSizeComboBox.Text);
+        MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
+      }
+
+      catch (FormatException)
+      {
+        //do nothing
+      }
+    }
   }
 }

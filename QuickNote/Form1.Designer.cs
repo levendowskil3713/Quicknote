@@ -176,6 +176,7 @@ namespace QuickNote
       this.FontSizeComboBox.Name = "FontSizeComboBox";
       this.FontSizeComboBox.Size = new System.Drawing.Size(121, 38);
       this.FontSizeComboBox.Text = "Font Size";
+      this.FontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.FontSizeComboBox_SelectedIndexChanged);
       // 
       // BoldButton
       // 
