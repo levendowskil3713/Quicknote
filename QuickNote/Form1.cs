@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Documents;
+using System.Windows.Controls;
 
 namespace QuickNote
 {
@@ -88,14 +90,19 @@ namespace QuickNote
       //un-italicizes selected text if the selected text is currently italicizes
       if (MainTextBox.SelectionFont.Italic == true)
       {
-        MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+        //for (int i = 0; i < MainTextBox.TextLength; i++)
+        //{
+        //  MainTextBox.Select(i, 1);
+        //  MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+        //}
         ItalicsButton.BackColor = Color.White;
       }
 
       //italicizes selected text if the selected text is not currently italicizes
       else
       {
-        MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Italic);
+        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Italic);
         ItalicsButton.BackColor = Color.Silver;
       }
     }
