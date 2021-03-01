@@ -16,12 +16,16 @@ namespace QuickNote
   {
     //font size of the main text box
     float fontSize = 11;
+    float penSize;
     Graphics g;
     int x = -1;
     int y = -1;
     bool moving = false;
     Pen pen;
 
+    /// <summary>
+    /// Initializes graphics panel and pen for drawing. 
+    /// </summary>
     public MainForm()
     {
       InitializeComponent();
@@ -174,7 +178,11 @@ namespace QuickNote
         UnderlineButton.BackColor = Color.White;
       }
     }
-
+        /// <summary>
+        /// Stops drawing when the mouse button is up.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void Panel1_MouseUp(object sender, MouseEventArgs e)
         {
             moving = false;
@@ -182,14 +190,22 @@ namespace QuickNote
             y = -1;
 
         }
-
+        /// <summary>
+        /// Starts drawing when the mouse button is pressed down.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             moving = true;
             x = e.X;
             y = e.Y;
         }
-
+        /// <summary>
+        /// Draws lines along the coordinates of mouse movement.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (moving && x != -1 && y != -1) 
@@ -199,7 +215,13 @@ namespace QuickNote
                 y = e.Y;
             }
         }
-
+        /// <summary>
+        /// Swaps the drawing panel with the textbox panel when drawing button is clicked.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
+        
+        // Developer note- This isn't fully functional yet and may not work long term, just testing it as a method. 
         private void CursorButton_Click(object sender, EventArgs e)
         {
             if (CursorButton.Checked == false)
@@ -223,6 +245,19 @@ namespace QuickNote
         {
             System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
             pen.Color = b.BackColor;
+        }
+
+        /// <summary>
+        /// Sets the thickness of pen to the user selected value.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
+        private void LineThicknessSplitButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+            penSize = float.Parse(e.ClickedItem.Text);
+            pen.Width = penSize;
+
         }
     }
 }
