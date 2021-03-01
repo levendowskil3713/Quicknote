@@ -210,25 +210,19 @@ namespace QuickNote
 
         private void RedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
+            pen.Color = b.BackColor;
+        }
+        private void GreenToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
             pen.Color = b.BackColor;
         }
 
-        private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
+        private void BlueToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
             pen.Color = b.BackColor;
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            pen.Color = t.BackColor;
         }
     }
 }

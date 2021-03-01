@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace QuickNote
 {
   partial class MainForm
@@ -48,6 +50,7 @@ namespace QuickNote
             this.EraserButton = new System.Windows.Forms.ToolStripButton();
             this.LineColorSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LineThicknessSplitButton = new System.Windows.Forms.ToolStripSplitButton();
             this.pxToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pxToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +68,7 @@ namespace QuickNote
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalendarButton = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripTextBox();
+            this.BlueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -239,7 +242,7 @@ namespace QuickNote
             // CursorButton
             // 
             this.CursorButton.AutoSize = false;
-            this.CursorButton.BackColor = System.Drawing.Color.Red;
+            this.CursorButton.BackColor = System.Drawing.Color.White;
             this.CursorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.CursorButton.Image = ((System.Drawing.Image)(resources.GetObject("CursorButton.Image")));
             this.CursorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -272,8 +275,9 @@ namespace QuickNote
             this.LineColorSplitButton.AutoSize = false;
             this.LineColorSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.LineColorSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.redToolStripMenuItem});
+            this.redToolStripMenuItem,
+            this.GreenToolStripMenuItem,
+            this.BlueToolStripMenuItem});
             this.LineColorSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("LineColorSplitButton.Image")));
             this.LineColorSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LineColorSplitButton.Name = "LineColorSplitButton";
@@ -288,6 +292,14 @@ namespace QuickNote
             this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Click += new System.EventHandler(this.RedToolStripMenuItem_Click);
+            // 
+            // GreenToolStripMenuItem
+            // 
+            this.GreenToolStripMenuItem.BackColor = System.Drawing.Color.Lime;
+            this.GreenToolStripMenuItem.Name = "GreenToolStripMenuItem";
+            this.GreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.GreenToolStripMenuItem.Text = "Green";
+            this.GreenToolStripMenuItem.Click += new System.EventHandler(this.GreenToolStripMenuItem_Click_1);
             // 
             // LineThicknessSplitButton
             // 
@@ -312,56 +324,56 @@ namespace QuickNote
             // 
             this.pxToolStripMenuItem1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem1.Name = "pxToolStripMenuItem1";
-            this.pxToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem1.Text = "1px";
             // 
             // pxToolStripMenuItem2
             // 
             this.pxToolStripMenuItem2.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem2.Name = "pxToolStripMenuItem2";
-            this.pxToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem2.Text = "2px";
             // 
             // pxToolStripMenuItem3
             // 
             this.pxToolStripMenuItem3.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem3.Name = "pxToolStripMenuItem3";
-            this.pxToolStripMenuItem3.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem3.Text = "3px";
             // 
             // pxToolStripMenuItem4
             // 
             this.pxToolStripMenuItem4.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem4.Name = "pxToolStripMenuItem4";
-            this.pxToolStripMenuItem4.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem4.Text = "4px";
             // 
             // pxToolStripMenuItem5
             // 
             this.pxToolStripMenuItem5.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem5.Name = "pxToolStripMenuItem5";
-            this.pxToolStripMenuItem5.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem5.Text = "8px";
             // 
             // pxToolStripMenuItem6
             // 
             this.pxToolStripMenuItem6.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem6.Name = "pxToolStripMenuItem6";
-            this.pxToolStripMenuItem6.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem6.Text = "12px";
             // 
             // pxToolStripMenuItem7
             // 
             this.pxToolStripMenuItem7.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem7.Name = "pxToolStripMenuItem7";
-            this.pxToolStripMenuItem7.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem7.Text = "16px";
             // 
             // pxToolStripMenuItem8
             // 
             this.pxToolStripMenuItem8.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pxToolStripMenuItem8.Name = "pxToolStripMenuItem8";
-            this.pxToolStripMenuItem8.Size = new System.Drawing.Size(104, 22);
+            this.pxToolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.pxToolStripMenuItem8.Text = "24px";
             // 
             // toolStripSeparator3
@@ -421,23 +433,22 @@ namespace QuickNote
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(816, 760);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
-            // toolStripMenuItem1
+            // BlueToolStripMenuItem
             // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.Color.Blue;
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 23);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.BlueToolStripMenuItem.BackColor = System.Drawing.Color.Blue;
+            this.BlueToolStripMenuItem.Name = "BlueToolStripMenuItem";
+            this.BlueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BlueToolStripMenuItem.Text = "Blue";
+            this.BlueToolStripMenuItem.Click += new System.EventHandler(this.BlueToolStripMenuItem_Click_1);
             // 
             // MainForm
             // 
@@ -446,8 +457,8 @@ namespace QuickNote
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(827, 794);
             this.Controls.Add(this.MainToolStrip);
-            this.Controls.Add(this.MainTextBox);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.MainTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
@@ -459,9 +470,14 @@ namespace QuickNote
 
     }
 
-    #endregion
+        private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
-    private System.Windows.Forms.RichTextBox MainTextBox;
+        #endregion
+
+        private System.Windows.Forms.RichTextBox MainTextBox;
         private System.Windows.Forms.ToolStrip MainToolStrip;
         private System.Windows.Forms.ToolStripButton SaveButton;
         private System.Windows.Forms.ToolStripButton LoadButton;
@@ -496,7 +512,8 @@ namespace QuickNote
     private System.Windows.Forms.ToolStripMenuItem pxToolStripMenuItem8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem GreenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BlueToolStripMenuItem;
     }
 }
 
