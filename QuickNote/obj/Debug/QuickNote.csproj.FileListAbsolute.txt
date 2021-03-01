@@ -18,3 +18,13 @@ C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.csproj.CoreComp
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.exe
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.pdb
 C:\Programming\QuickNote\Quicknote\QuickNote\obj\Debug\QuickNote.MainForm.resources
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.csprojAssemblyReference.cache
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.MainForm.resources
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.Properties.Resources.resources
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.csproj.GenerateResource.cache
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.csproj.CoreCompileInputs.cache
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.exe
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.pdb
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.exe.config
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.exe
+C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.pdb
