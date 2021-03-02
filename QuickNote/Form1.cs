@@ -57,24 +57,29 @@ namespace QuickNote
       //un-bolds selected text if the selected text is currently bolded
       if (MainTextBox.SelectionFont.Bold == true)
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if (selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
+          MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         BoldButton.BackColor = Color.White;
       }
@@ -82,24 +87,29 @@ namespace QuickNote
       //bolds selected text if the selected text is not currently bolded
       else
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Bold);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if (selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Bold);
+          MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Bold);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Bold);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         BoldButton.BackColor = Color.Silver;
       }
@@ -115,24 +125,29 @@ namespace QuickNote
       //un-underlines selected text if the selected text is currently underlined
       if (MainTextBox.SelectionFont.Underline == true)
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if(selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
+          MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         UnderlineButton.BackColor = Color.White;
       }
@@ -140,24 +155,29 @@ namespace QuickNote
       //underlines selected text if the selected text is not currently underlined
       else
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Underline);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if(selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Underline);
+          MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Underline);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Underline);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         UnderlineButton.BackColor = Color.Silver;
       }
@@ -173,24 +193,29 @@ namespace QuickNote
       //un-italicizes selected text if the selected text is currently italicizes
       if (MainTextBox.SelectionFont.Italic == true)
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if(selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         ItalicsButton.BackColor = Color.White;
       }
@@ -198,24 +223,29 @@ namespace QuickNote
       //italicizes selected text if the selected text is not currently italicizes
       else
       {
-        //Old technique
-        //MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Italic);
-
         //the length of the selected text
         int selectedTextLength = MainTextBox.SelectionLength;
 
-        //the starting index of the selected text
-        int selectedTextStart = MainTextBox.SelectionStart;
-
-        //changes each character individually to preserve formatting
-        for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+        if(selectedTextLength < 1)
         {
-          MainTextBox.Select(i, 1);
-          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Italic);
+          MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Italic);
         }
 
-        //re-selects the text segment
-        MainTextBox.Select(selectedTextStart, selectedTextLength);
+        else
+        {
+          //the starting index of the selected text
+          int selectedTextStart = MainTextBox.SelectionStart;
+
+          //changes each character individually to preserve formatting
+          for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
+          {
+            MainTextBox.Select(i, 1);
+            MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Italic);
+          }
+
+          //re-selects the text segment
+          MainTextBox.Select(selectedTextStart, selectedTextLength);
+        }
 
         ItalicsButton.BackColor = Color.Silver;
       }
