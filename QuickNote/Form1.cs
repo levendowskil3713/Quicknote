@@ -392,5 +392,18 @@ namespace QuickNote
             pen.Width = penSize;
 
         }
-  }
+
+        private void BulletButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MainTextBox.SelectionBullet = true;
+                MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
+            }
+            catch (FormatException)
+            {
+                //do nothing
+            }
+        }
+    }
 }

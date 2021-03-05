@@ -28,3 +28,13 @@ C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\obj\Debug\QuickNote.pdb
 C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.exe.config
 C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.exe
 C:\Users\Joello\Source\Repos\QuicknoteNew\QuickNote\bin\Debug\QuickNote.pdb
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\bin\Debug\QuickNote.exe.config
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\bin\Debug\QuickNote.exe
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\bin\Debug\QuickNote.pdb
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.csprojAssemblyReference.cache
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.MainForm.resources
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.Properties.Resources.resources
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.csproj.GenerateResource.cache
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.csproj.CoreCompileInputs.cache
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.exe
+C:\Users\Orphan Spanker\source\repos\new yes\QuickNote\obj\Debug\QuickNote.pdb
