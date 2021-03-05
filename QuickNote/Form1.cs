@@ -358,9 +358,15 @@ namespace QuickNote
         private void CursorButton_Click(object sender, EventArgs e)
         {
             if (CursorButton.Checked == false)
+            {
                 panel1.BringToFront();
+                CursorButton.BackColor = Color.Silver;
+            }
             else
+            {
                 MainTextBox.BringToFront();
+                CursorButton.BackColor = Color.White;
+            }
         }
 
         private void RedToolStripMenuItem_Click(object sender, EventArgs e)
