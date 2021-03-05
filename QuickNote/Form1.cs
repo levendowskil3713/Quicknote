@@ -392,7 +392,11 @@ namespace QuickNote
             pen.Width = penSize;
 
         }
-
+         /// <summary>
+        /// Allows text to be displayed into bullet points.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void BulletButton_Click(object sender, EventArgs e)
         {
             try
