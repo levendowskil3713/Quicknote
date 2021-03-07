@@ -16,6 +16,7 @@ namespace QuickNote
   {
     //font size of the main text box
     float fontSize = 11;
+       float fontStyle;
     float penSize;
     Graphics g;
     int x = -1;
@@ -45,7 +46,13 @@ namespace QuickNote
 
       //sets the text of the text size combo box equal to the starting font size of the main text box upon startup
       FontSizeComboBox.Text = string.Format("{0:N0}", MainTextBox.Font.Size);
-    }
+           
+        //Puts all fonts into the font style combobox.    
+            foreach (FontFamily font in FontFamily.Families)
+            {
+                FontStyleComboBox.Items.Add(font.Name.ToString());
+            }
+        }
 
     /// <summary>
     /// Bolds all selected text and updates button color.
@@ -250,17 +257,35 @@ namespace QuickNote
         ItalicsButton.BackColor = Color.Silver;
       }
     }
+        /// <summary>
+        /// Sets selected text to the specified style in the text style combo box.
+        /// </summary>
+        /// <param name="sender">A reference to the object that raised the event.</param>
+        /// <param name="e">Contains the function's event data.</param>
+        private void FontStyleComboBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MainTextBox.SelectionFont = new Font(FontStyleComboBox.Text, MainTextBox.SelectionFont.Size);
+            }
+            catch
+            {
+                //do nothing
+            }
 
-    /// <summary>
-    /// Sets selected text to the specified size in the text size combo box.
-    /// </summary>
-    /// <param name="sender">A reference to the object that raised the event.</param>
-    /// <param name="e">Contains the function's event data.</param>
-    private void FontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        }
+
+        /// <summary>
+        /// Sets selected text to the specified size in the text size combo box.
+        /// </summary>
+        /// <param name="sender">A reference to the object that raised the event.</param>
+        /// <param name="e">Contains the function's event data.</param>
+        private void FontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       //only changes text size when the input can be parsed as a float
       try
       {
+               
         fontSize = float.Parse(FontSizeComboBox.Text);
         MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
       }
@@ -415,5 +440,7 @@ namespace QuickNote
                 //do nothing
             }
         }
+
+        
     }
 }
