@@ -31,6 +31,7 @@ namespace QuickNote
     {
       InitializeComponent();
       g = panel1.CreateGraphics();
+      
       pen = new Pen(Color.Black, 5);
     }
 
@@ -441,6 +442,17 @@ namespace QuickNote
             }
         }
 
-        
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
+            pen.Color = b.BackColor;
+        }
+
+        private void EraserButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolStripButton b = (System.Windows.Forms.ToolStripButton)sender;
+            pen.Color = b.BackColor;
+        }
+
     }
 }

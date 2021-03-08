@@ -77,10 +77,10 @@ namespace QuickNote
             this.MainTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainTextBox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextBox.Location = new System.Drawing.Point(0, 36);
-            this.MainTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MainTextBox.Name = "MainTextBox";
             this.MainTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.MainTextBox.Size = new System.Drawing.Size(815, 758);
+            this.MainTextBox.Size = new System.Drawing.Size(440, 758);
             this.MainTextBox.TabIndex = 0;
             this.MainTextBox.Text = "";
             this.MainTextBox.SelectionChanged += new System.EventHandler(this.MainTextBox_SelectionChanged);
@@ -271,6 +271,7 @@ namespace QuickNote
             this.EraserButton.Name = "EraserButton";
             this.EraserButton.Size = new System.Drawing.Size(24, 28);
             this.EraserButton.Text = "Eraser Tool Select";
+            this.EraserButton.Click += new System.EventHandler(this.EraserButton_Click);
             // 
             // LineColorSplitButton
             // 
@@ -291,7 +292,7 @@ namespace QuickNote
             // 
             this.redToolStripMenuItem.BackColor = System.Drawing.Color.Red;
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Click += new System.EventHandler(this.RedToolStripMenuItem_Click);
             // 
@@ -299,7 +300,7 @@ namespace QuickNote
             // 
             this.GreenToolStripMenuItem.BackColor = System.Drawing.Color.Lime;
             this.GreenToolStripMenuItem.Name = "GreenToolStripMenuItem";
-            this.GreenToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.GreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.GreenToolStripMenuItem.Text = "Green";
             this.GreenToolStripMenuItem.Click += new System.EventHandler(this.GreenToolStripMenuItem_Click_1);
             // 
@@ -307,7 +308,7 @@ namespace QuickNote
             // 
             this.BlueToolStripMenuItem.BackColor = System.Drawing.Color.Blue;
             this.BlueToolStripMenuItem.Name = "BlueToolStripMenuItem";
-            this.BlueToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.BlueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BlueToolStripMenuItem.Text = "Blue";
             this.BlueToolStripMenuItem.Click += new System.EventHandler(this.BlueToolStripMenuItem_Click_1);
             // 
@@ -464,7 +465,7 @@ namespace QuickNote
             this.Controls.Add(this.MainTextBox);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "QuickNote";
             this.Load += new System.EventHandler(this.QuickNote_Load);
