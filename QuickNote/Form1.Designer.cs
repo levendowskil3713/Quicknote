@@ -39,6 +39,10 @@ namespace QuickNote
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.FontStyleComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.FontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.FontColorButton = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.BoldButton = new System.Windows.Forms.ToolStripButton();
             this.UnderlineButton = new System.Windows.Forms.ToolStripButton();
             this.ItalicsButton = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +72,7 @@ namespace QuickNote
             this.HyperlinkButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalendarButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MainToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +105,7 @@ namespace QuickNote
             this.toolStripSeparator1,
             this.FontStyleComboBox,
             this.FontSizeComboBox,
+            this.FontColorButton,
             this.BoldButton,
             this.UnderlineButton,
             this.ItalicsButton,
@@ -117,10 +123,11 @@ namespace QuickNote
             this.toolStripSeparator4,
             this.HyperlinkButton,
             this.toolStripSeparator5,
-            this.CalendarButton});
+            this.CalendarButton,
+            this.toolStripComboBox1});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
-            this.MainToolStrip.Size = new System.Drawing.Size(821, 31);
+            this.MainToolStrip.Size = new System.Drawing.Size(980, 31);
             this.MainToolStrip.Stretch = true;
             this.MainToolStrip.TabIndex = 1;
             this.MainToolStrip.Text = "MainToolStrip";
@@ -182,6 +189,42 @@ namespace QuickNote
             this.FontSizeComboBox.Size = new System.Drawing.Size(92, 31);
             this.FontSizeComboBox.Text = "Font Size";
             this.FontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.FontSizeComboBox_SelectedIndexChanged);
+            // 
+            // FontColorButton
+            // 
+            this.FontColorButton.AutoSize = false;
+            this.FontColorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.FontColorButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.FontColorButton.Image = ((System.Drawing.Image)(resources.GetObject("FontColorButton.Image")));
+            this.FontColorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FontColorButton.Name = "FontColorButton";
+            this.FontColorButton.Size = new System.Drawing.Size(70, 35);
+            this.FontColorButton.Text = "Line Color";
+            this.FontColorButton.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.FontColorButton_DropDownItemClicked);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Red";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.BackColor = System.Drawing.Color.Lime;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Green";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.BackColor = System.Drawing.Color.Blue;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Blue";
             // 
             // BoldButton
             // 
@@ -443,13 +486,18 @@ namespace QuickNote
             this.CalendarButton.Size = new System.Drawing.Size(35, 35);
             this.CalendarButton.Text = "Calendar";
             // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.ForeColor = System.Drawing.Color.Transparent;
             this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(821, 760);
+            this.panel1.Size = new System.Drawing.Size(980, 760);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
@@ -460,7 +508,7 @@ namespace QuickNote
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(815, 794);
+            this.ClientSize = new System.Drawing.Size(974, 794);
             this.Controls.Add(this.MainToolStrip);
             this.Controls.Add(this.MainTextBox);
             this.Controls.Add(this.panel1);
@@ -519,6 +567,11 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GreenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BlueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripSplitButton FontColorButton;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 
