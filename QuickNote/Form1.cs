@@ -395,23 +395,6 @@ namespace QuickNote
             }
         }
 
-        private void RedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
-            pen.Color = b.BackColor;
-        }
-        private void GreenToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
-            pen.Color = b.BackColor;
-        }
-
-        private void BlueToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            System.Windows.Forms.ToolStripMenuItem b = (System.Windows.Forms.ToolStripMenuItem)sender;
-            pen.Color = b.BackColor;
-        }
-
         /// <summary>
         /// Sets the thickness of pen to the user selected value.
         /// </summary>
@@ -478,6 +461,11 @@ namespace QuickNote
 
                 FontColorButton.BackColor = e.ClickedItem.BackColor;
 
-        } 
+        }
+
+        private void LineColorSplitButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            pen.Color = e.ClickedItem.BackColor;
+        }
     }
 }

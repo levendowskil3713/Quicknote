@@ -330,6 +330,7 @@ namespace QuickNote
             this.LineColorSplitButton.Size = new System.Drawing.Size(70, 35);
             this.LineColorSplitButton.Text = "Line Color";
             this.LineColorSplitButton.ButtonClick += new System.EventHandler(this.LineColorSplitButton_ButtonClick);
+            this.LineColorSplitButton.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.LineColorSplitButton_DropDownItemClicked);
             // 
             // redToolStripMenuItem
             // 
@@ -337,7 +338,6 @@ namespace QuickNote
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
             this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redToolStripMenuItem.Text = "Red";
-            this.redToolStripMenuItem.Click += new System.EventHandler(this.RedToolStripMenuItem_Click);
             // 
             // GreenToolStripMenuItem
             // 
@@ -345,7 +345,6 @@ namespace QuickNote
             this.GreenToolStripMenuItem.Name = "GreenToolStripMenuItem";
             this.GreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.GreenToolStripMenuItem.Text = "Green";
-            this.GreenToolStripMenuItem.Click += new System.EventHandler(this.GreenToolStripMenuItem_Click_1);
             // 
             // BlueToolStripMenuItem
             // 
@@ -353,7 +352,6 @@ namespace QuickNote
             this.BlueToolStripMenuItem.Name = "BlueToolStripMenuItem";
             this.BlueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BlueToolStripMenuItem.Text = "Blue";
-            this.BlueToolStripMenuItem.Click += new System.EventHandler(this.BlueToolStripMenuItem_Click_1);
             // 
             // LineThicknessSplitButton
             // 
