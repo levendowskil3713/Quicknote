@@ -75,6 +75,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -87,6 +89,8 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+                    MainTextBox.Resume();
                 }
 
                 BoldButton.BackColor = Color.White;
@@ -105,6 +109,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -117,6 +123,8 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+                    MainTextBox.Resume();
                 }
 
                 BoldButton.BackColor = Color.Silver;
@@ -143,6 +151,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -155,7 +165,9 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
-                }
+
+                    MainTextBox.Resume();
+                 }
 
                 UnderlineButton.BackColor = Color.White;
             }
@@ -173,6 +185,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -185,6 +199,8 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+                    MainTextBox.Resume();
                 }
 
                 UnderlineButton.BackColor = Color.Silver;
@@ -211,6 +227,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -223,6 +241,8 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+                    MainTextBox.Resume();
                 }
 
                 ItalicsButton.BackColor = Color.White;
@@ -241,6 +261,8 @@ namespace QuickNote
 
                 else
                 {
+                    MainTextBox.Suspend();
+
                     //the starting index of the selected text
                     int selectedTextStart = MainTextBox.SelectionStart;
 
@@ -253,6 +275,8 @@ namespace QuickNote
 
                     //re-selects the text segment
                     MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+                    MainTextBox.Resume();
                 }
 
                 ItalicsButton.BackColor = Color.Silver;
