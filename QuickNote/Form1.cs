@@ -24,6 +24,8 @@ namespace QuickNote
         bool moving = false;
         Pen pen;
         bool isDrawing = false;
+        bool isErasing = false;
+        Color lineColor = Color.Black;
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -418,11 +420,18 @@ namespace QuickNote
             {
                 CursorButton.BackColor = Color.Silver;
                 isDrawing = true;
+
+                MainTextBox.Cursor = Cursors.Cross;
             }
             else
             {
                 CursorButton.BackColor = Color.White;
                 isDrawing = false;
+
+                EraserButton.BackColor = Color.White;
+                isErasing = false;
+
+                MainTextBox.Cursor = Cursors.IBeam;
             }
         }
 
@@ -458,8 +467,20 @@ namespace QuickNote
 
         private void EraserButton_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.ToolStripButton b = (System.Windows.Forms.ToolStripButton)sender;
-            pen.Color = b.BackColor;
+            if(isErasing == false)
+            {
+                //System.Windows.Forms.ToolStripButton b = (System.Windows.Forms.ToolStripButton)sender;
+                pen.Color = Color.White;
+                EraserButton.BackColor = Color.Silver;
+                isErasing = true;
+            }
+
+            else
+            {
+                EraserButton.BackColor = Color.White;
+                pen.Color = lineColor;
+                isErasing = false;
+            }
         }
 
         private void FontColorButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -496,7 +517,8 @@ namespace QuickNote
 
         private void LineColorSplitButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            pen.Color = e.ClickedItem.BackColor;
+            lineColor = e.ClickedItem.BackColor;
+            pen.Color = lineColor;
         }
     }
 }

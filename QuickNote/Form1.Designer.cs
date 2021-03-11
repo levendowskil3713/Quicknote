@@ -72,7 +72,7 @@ namespace QuickNote
       this.HyperlinkButton = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.CalendarButton = new System.Windows.Forms.ToolStripButton();
-      this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+      this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.MainToolStrip.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -80,11 +80,11 @@ namespace QuickNote
       // 
       this.MainTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.MainTextBox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.MainTextBox.Location = new System.Drawing.Point(0, 44);
+      this.MainTextBox.Location = new System.Drawing.Point(0, 40);
       this.MainTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.MainTextBox.Name = "MainTextBox";
       this.MainTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-      this.MainTextBox.Size = new System.Drawing.Size(587, 933);
+      this.MainTextBox.Size = new System.Drawing.Size(1299, 937);
       this.MainTextBox.TabIndex = 0;
       this.MainTextBox.Text = "";
       this.MainTextBox.SelectionChanged += new System.EventHandler(this.MainTextBox_SelectionChanged);
@@ -125,8 +125,7 @@ namespace QuickNote
             this.toolStripSeparator4,
             this.HyperlinkButton,
             this.toolStripSeparator5,
-            this.CalendarButton,
-            this.toolStripComboBox1});
+            this.CalendarButton});
       this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
       this.MainToolStrip.Name = "MainToolStrip";
       this.MainToolStrip.Size = new System.Drawing.Size(1307, 38);
@@ -323,6 +322,7 @@ namespace QuickNote
       this.LineColorSplitButton.AutoSize = false;
       this.LineColorSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.LineColorSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.blackToolStripMenuItem,
             this.redToolStripMenuItem,
             this.GreenToolStripMenuItem,
             this.BlueToolStripMenuItem});
@@ -338,21 +338,21 @@ namespace QuickNote
       // 
       this.redToolStripMenuItem.BackColor = System.Drawing.Color.Red;
       this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-      this.redToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+      this.redToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
       this.redToolStripMenuItem.Text = "Red";
       // 
       // GreenToolStripMenuItem
       // 
       this.GreenToolStripMenuItem.BackColor = System.Drawing.Color.Lime;
       this.GreenToolStripMenuItem.Name = "GreenToolStripMenuItem";
-      this.GreenToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+      this.GreenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
       this.GreenToolStripMenuItem.Text = "Green";
       // 
       // BlueToolStripMenuItem
       // 
       this.BlueToolStripMenuItem.BackColor = System.Drawing.Color.Blue;
       this.BlueToolStripMenuItem.Name = "BlueToolStripMenuItem";
-      this.BlueToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+      this.BlueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
       this.BlueToolStripMenuItem.Text = "Blue";
       // 
       // LineThicknessSplitButton
@@ -486,10 +486,13 @@ namespace QuickNote
       this.CalendarButton.Size = new System.Drawing.Size(35, 35);
       this.CalendarButton.Text = "Calendar";
       // 
-      // toolStripComboBox1
+      // blackToolStripMenuItem
       // 
-      this.toolStripComboBox1.Name = "toolStripComboBox1";
-      this.toolStripComboBox1.Size = new System.Drawing.Size(121, 38);
+      this.blackToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+      this.blackToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+      this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
+      this.blackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.blackToolStripMenuItem.Text = "Black";
       // 
       // MainForm
       // 
@@ -553,11 +556,11 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GreenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BlueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripSplitButton FontColorButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-    }
+    private System.Windows.Forms.ToolStripMenuItem blackToolStripMenuItem;
+  }
 }
 
