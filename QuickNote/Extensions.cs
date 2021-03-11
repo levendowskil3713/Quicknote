@@ -11,7 +11,7 @@ namespace QuickNote
     /// <summary>
     /// Prevents the selected control from being repainted
     /// </summary>
-    /// <param name="sender">The control that shall be suspended.</param>
+    /// <param name="control">The control that shall be suspended.</param>
     public static void Suspend(this System.Windows.Forms.Control control)
     {
       LockWindowUpdate(control.Handle);
@@ -20,7 +20,7 @@ namespace QuickNote
     /// <summary>
     /// Allows the selected control to be repainted
     /// </summary>
-    /// <param name="sender">The control that shall be resumed.</param>
+    /// <param name="control">The control that shall be resumed.</param>
     public static void Resume(this System.Windows.Forms.Control control)
     {
       LockWindowUpdate(IntPtr.Zero);

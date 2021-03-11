@@ -18,11 +18,12 @@ namespace QuickNote
         float fontSize = 11;
         float fontStyle;
         float penSize;
-        Graphics g;
+        Graphics graphics;
         int x = -1;
         int y = -1;
         bool moving = false;
         Pen pen;
+        bool isDrawing = false;
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -30,7 +31,7 @@ namespace QuickNote
         public MainForm()
         {
             InitializeComponent();
-            g = panel1.CreateGraphics();
+            graphics = MainTextBox.CreateGraphics();
 
             pen = new Pen(Color.Black, 5);
         }
@@ -366,56 +367,62 @@ namespace QuickNote
         /// </summary>
         /// <param name="sender"> A reference to the object that raised the event. </param>
         /// <param name="e"> Contains the function's event data. </param>
-        private void Panel1_MouseUp(object sender, MouseEventArgs e)
+        private void MainTextBox_MouseUp(object sender, MouseEventArgs e)
         {
-            moving = false;
-            x = -1;
-            y = -1;
-
+            if(isDrawing == true)
+            {
+                moving = false;
+                x = -1;
+                y = -1;
+            }
         }
+
         /// <summary>
         /// Starts drawing when the mouse button is pressed down.
         /// </summary>
         /// <param name="sender"> A reference to the object that raised the event. </param>
         /// <param name="e"> Contains the function's event data. </param>
-        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        private void MainTextBox_MouseDown(object sender, MouseEventArgs e)
         {
-            moving = true;
-            x = e.X;
-            y = e.Y;
-        }
-        /// <summary>
-        /// Draws lines along the coordinates of mouse movement.
-        /// </summary>
-        /// <param name="sender"> A reference to the object that raised the event. </param>
-        /// <param name="e"> Contains the function's event data. </param>
-        private void Panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (moving && x != -1 && y != -1)
+            if (isDrawing == true)
             {
-                g.DrawLine(pen, new Point(x, y), e.Location);
+                moving = true;
                 x = e.X;
                 y = e.Y;
             }
         }
+
+        /// Draws lines along the coordinates of mouse movement.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
+        private void MainTextBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (moving && x != -1 && y != -1 && isDrawing == true)
+            {
+                graphics.DrawLine(pen, new Point(x, y), e.Location);
+                x = e.X;
+                y = e.Y;
+            }
+        }
+
+
         /// <summary>
         /// Swaps the drawing panel with the textbox panel when drawing button is clicked.
         /// </summary>
         /// <param name="sender"> A reference to the object that raised the event. </param>
         /// <param name="e"> Contains the function's event data. </param>
-
-        // Developer note- This isn't fully functional yet and may not work long term, just testing it as a method. 
         private void CursorButton_Click(object sender, EventArgs e)
         {
-            if (CursorButton.Checked == false)
+            if (isDrawing == false)
             {
-                panel1.BringToFront();
                 CursorButton.BackColor = Color.Silver;
+                isDrawing = true;
             }
             else
             {
-                MainTextBox.BringToFront();
                 CursorButton.BackColor = Color.White;
+                isDrawing = false;
             }
         }
 
