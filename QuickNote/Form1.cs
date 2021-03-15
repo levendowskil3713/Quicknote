@@ -520,5 +520,10 @@ namespace QuickNote
             lineColor = e.ClickedItem.BackColor;
             pen.Color = lineColor;
         }
+
+    private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
+    {
+      //Do nothing
     }
+  }
 }

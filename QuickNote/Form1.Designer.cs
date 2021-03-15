@@ -53,6 +53,7 @@ namespace QuickNote
       this.DrawButton = new System.Windows.Forms.ToolStripButton();
       this.EraserButton = new System.Windows.Forms.ToolStripButton();
       this.LineColorSplitButton = new System.Windows.Forms.ToolStripSplitButton();
+      this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.GreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.BlueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@ namespace QuickNote
       this.HyperlinkButton = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.CalendarButton = new System.Windows.Forms.ToolStripButton();
-      this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.MainToolStrip.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -334,6 +334,14 @@ namespace QuickNote
       this.LineColorSplitButton.ButtonClick += new System.EventHandler(this.LineColorSplitButton_ButtonClick);
       this.LineColorSplitButton.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.LineColorSplitButton_DropDownItemClicked);
       // 
+      // blackToolStripMenuItem
+      // 
+      this.blackToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+      this.blackToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+      this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
+      this.blackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.blackToolStripMenuItem.Text = "Black";
+      // 
       // redToolStripMenuItem
       // 
       this.redToolStripMenuItem.BackColor = System.Drawing.Color.Red;
@@ -486,14 +494,6 @@ namespace QuickNote
       this.CalendarButton.Size = new System.Drawing.Size(35, 35);
       this.CalendarButton.Text = "Calendar";
       // 
-      // blackToolStripMenuItem
-      // 
-      this.blackToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-      this.blackToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-      this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-      this.blackToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.blackToolStripMenuItem.Text = "Black";
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,11 +512,6 @@ namespace QuickNote
       this.ResumeLayout(false);
 
     }
-
-        private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
 
