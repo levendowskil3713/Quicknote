@@ -335,31 +335,55 @@ namespace QuickNote
             FontSizeComboBox.Text = string.Format("{0:N0}", fontSize);
 
             //updates color of italics button
-            if (MainTextBox.SelectionFont.Italic == true)
+            try
             {
-                ItalicsButton.BackColor = Color.Silver;
+                if (MainTextBox.SelectionFont.Italic == true)
+                {
+                    ItalicsButton.BackColor = Color.Silver;
+                }
+                else if (MainTextBox.SelectionFont.Italic == false)
+                {
+                    ItalicsButton.BackColor = Color.White;
+                }
             }
-            else if (MainTextBox.SelectionFont.Italic == false)
+
+            catch (NullReferenceException)
             {
                 ItalicsButton.BackColor = Color.White;
             }
 
             //updates color of bold button
-            if (MainTextBox.SelectionFont.Bold == true)
+            try
             {
-                BoldButton.BackColor = Color.Silver;
+                if (MainTextBox.SelectionFont.Bold == true)
+                {
+                    BoldButton.BackColor = Color.Silver;
+                }
+                else if (MainTextBox.SelectionFont.Bold == false)
+                {
+                    BoldButton.BackColor = Color.White;
+                }
             }
-            else if (MainTextBox.SelectionFont.Bold == false)
+
+            catch (NullReferenceException)
             {
                 BoldButton.BackColor = Color.White;
             }
 
             //updates color of underline button
-            if (MainTextBox.SelectionFont.Underline == true)
+            try
             {
-                UnderlineButton.BackColor = Color.Silver;
+                if (MainTextBox.SelectionFont.Underline == true)
+                {
+                    UnderlineButton.BackColor = Color.Silver;
+                }
+                else if (MainTextBox.SelectionFont.Underline == false)
+                {
+                    UnderlineButton.BackColor = Color.White;
+                }
             }
-            else if (MainTextBox.SelectionFont.Underline == false)
+            
+            catch (NullReferenceException)
             {
                 UnderlineButton.BackColor = Color.White;
             }
