@@ -204,6 +204,7 @@ namespace QuickNote
             this.FontColorButton.Name = "FontColorButton";
             this.FontColorButton.Size = new System.Drawing.Size(70, 35);
             this.FontColorButton.Text = "Line Color";
+            this.FontColorButton.ToolTipText = "Text Color";
             this.FontColorButton.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.FontColorButton_DropDownItemClicked);
             // 
             // toolStripMenuItem1
