@@ -388,6 +388,24 @@ namespace QuickNote
             {
                 UnderlineButton.BackColor = Color.White;
             }
+
+            //updates color of underline button
+            try
+            {
+                if (MainTextBox.SelectionBullet == true)
+                {
+                    BulletButton.BackColor = Color.Silver;
+                }
+                else if (MainTextBox.SelectionBullet == false)
+                {
+                    BulletButton.BackColor = Color.White;
+                }
+            }
+            
+            catch (NullReferenceException)
+            {
+                BulletButton.BackColor = Color.White;
+            }
         }
         /// <summary>
         /// Stops drawing when the mouse button is up.
@@ -488,8 +506,17 @@ namespace QuickNote
         {
             try
             {
-                MainTextBox.SelectionBullet = true;
-                MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
+                if(MainTextBox.SelectionBullet == true)
+                {
+                    MainTextBox.SelectionBullet = false;
+                    BulletButton.BackColor = Color.White;
+                }
+
+                else
+                {
+                    MainTextBox.SelectionBullet = true;
+                    BulletButton.BackColor = Color.Silver;
+                }
             }
             catch (FormatException)
             {
