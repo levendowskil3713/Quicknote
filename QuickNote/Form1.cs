@@ -16,7 +16,7 @@ namespace QuickNote
     {
         //font size of the main text box
         float fontSize = 11;
-        float fontStyle;
+        float fontStyle; //can we get rid of this?
         float penSize;
         Graphics graphics;
         int x = -1;
@@ -36,6 +36,7 @@ namespace QuickNote
             graphics = MainTextBox.CreateGraphics();
 
             pen = new Pen(Color.Black, 5);
+            EraserButton.Enabled = false;
         }
 
         /// <summary>
@@ -442,18 +443,25 @@ namespace QuickNote
         {
             if (isDrawing == false)
             {
+                MainTextBox.ReadOnly = true;
                 CursorButton.BackColor = Color.Silver;
                 isDrawing = true;
+
+                EraserButton.Enabled = true;
 
                 MainTextBox.Cursor = Cursors.Cross;
             }
             else
             {
+                MainTextBox.ReadOnly = false;
                 CursorButton.BackColor = Color.White;
                 isDrawing = false;
 
                 EraserButton.BackColor = Color.White;
                 isErasing = false;
+                EraserButton.Enabled = false;
+
+                pen.Color = lineColor;
 
                 MainTextBox.Cursor = Cursors.IBeam;
             }
