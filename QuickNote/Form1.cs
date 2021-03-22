@@ -26,6 +26,8 @@ namespace QuickNote
         bool isDrawing = false;
         bool isErasing = false;
         Color lineColor = Color.Black;
+        string fileName = null;
+        Timer saveTime;
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -57,6 +59,8 @@ namespace QuickNote
             {
                 FontStyleComboBox.Items.Add(font.Name.ToString());
             }
+
+            InitiatlizeTimer();
         }
 
         /// <summary>
@@ -587,7 +591,6 @@ namespace QuickNote
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string fileName;
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) 
             {
@@ -599,5 +602,24 @@ namespace QuickNote
 
             
         }
+
+        public void InitiatlizeTimer() 
+        {
+            saveTime = new Timer();
+            saveTime.Tick += new EventHandler(saveTime_Tick);
+            saveTime.Interval = 30000;
+            saveTime.Start();
+        }
+
+        private void saveTime_Tick(object sender, EventArgs e)
+        {
+            if (fileName != null)
+            {
+                System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
+                textWriter.Write(MainTextBox.Text);
+                textWriter.Close();
+            }
+        }
+
     }
 }
