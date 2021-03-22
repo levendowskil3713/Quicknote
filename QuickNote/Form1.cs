@@ -584,5 +584,20 @@ namespace QuickNote
     {
       //Do nothing
     }
-  }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            string fileName;
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) 
+            {
+                fileName = fileDialog.FileName;
+                System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
+                textWriter.Write(MainTextBox.Text);
+                textWriter.Close();
+            }
+
+            
+        }
+    }
 }
