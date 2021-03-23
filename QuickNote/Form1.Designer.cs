@@ -163,7 +163,8 @@ namespace QuickNote
             this.FontStyleComboBox.Name = "FontStyleComboBox";
             this.FontStyleComboBox.Size = new System.Drawing.Size(94, 31);
             this.FontStyleComboBox.Text = "Font Style";
-            this.FontStyleComboBox.Click += new System.EventHandler(this.FontStyleComboBox_Click);
+            this.MainTextBox.SelectionChanged += new System.EventHandler(this.MainTextBox_SelectionChanged);
+            this.FontStyleComboBox.SelectedIndexChanged += new System.EventHandler(this.FontStyleComboBox_SelectedIndexChange);
             // 
             // FontSizeComboBox
             // 

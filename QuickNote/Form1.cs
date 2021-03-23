@@ -290,22 +290,32 @@ namespace QuickNote
                 ItalicsButton.BackColor = Color.Silver;
             }
         }
+
         /// <summary>
         /// Sets selected text to the specified style in the text style combo box.
         /// </summary>
         /// <param name="sender">A reference to the object that raised the event.</param>
         /// <param name="e">Contains the function's event data.</param>
-        private void FontStyleComboBox_Click(object sender, EventArgs e)
+        private void FontStyleComboBox_SelectedIndexChange(object sender, EventArgs e)
         {
-            try
+            MainTextBox.Suspend();
+
+            //the length of the selected text
+            int selectedTextLength = MainTextBox.SelectionLength;
+            //the starting index of the selected text
+            int selectedTextStart = MainTextBox.SelectionStart;
+
+            //changes each character individually to preserve formatting
+            for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
             {
-                MainTextBox.SelectionFont = new Font(FontStyleComboBox.Text, MainTextBox.SelectionFont.Size);
-            }
-            catch
-            {
-                //do nothing
+                MainTextBox.Select(i, 1);
+                MainTextBox.SelectionFont = new Font(FontStyleComboBox.Text, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style);
             }
 
+            //re-selects the text segment
+            MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+            MainTextBox.Resume();
         }
 
         /// <summary>
@@ -318,7 +328,6 @@ namespace QuickNote
             //only changes text size when the input can be parsed as a float
             try
             {
-
                 fontSize = float.Parse(FontSizeComboBox.Text);
                 MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
             }
@@ -411,6 +420,7 @@ namespace QuickNote
                 BulletButton.BackColor = Color.White;
             }
         }
+
         /// <summary>
         /// Stops drawing when the mouse button is up.
         /// </summary>
@@ -454,7 +464,6 @@ namespace QuickNote
                 y = e.Y;
             }
         }
-
 
         /// <summary>
         /// Swaps the drawing panel with the textbox panel when drawing button is clicked.
@@ -501,6 +510,7 @@ namespace QuickNote
             pen.Width = penSize;
 
         }
+
         /// <summary>
         /// Allows text to be displayed into bullet points.
         /// </summary>
@@ -584,10 +594,10 @@ namespace QuickNote
             pen.Color = lineColor;
         }
 
-    private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
-    {
-      //Do nothing
-    }
+        private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
+        {
+          //Do nothing
+        }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
