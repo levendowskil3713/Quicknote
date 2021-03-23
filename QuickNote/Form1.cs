@@ -325,17 +325,26 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void FontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //only changes text size when the input can be parsed as a float
-            try
+            MainTextBox.Suspend();
+
+            //the length of the selected text
+            int selectedTextLength = MainTextBox.SelectionLength;
+            //the starting index of the selected text
+            int selectedTextStart = MainTextBox.SelectionStart;
+            //the selected font size
+            fontSize = float.Parse(FontSizeComboBox.Text);
+
+            //changes each character individually to preserve formatting
+            for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
             {
-                fontSize = float.Parse(FontSizeComboBox.Text);
-                MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
+                MainTextBox.Select(i, 1);
+                MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
             }
 
-            catch (FormatException)
-            {
-                //do nothing
-            }
+            //re-selects the text segment
+            MainTextBox.Select(selectedTextStart, selectedTextLength);
+
+            MainTextBox.Resume();
         }
 
         /// <summary>
