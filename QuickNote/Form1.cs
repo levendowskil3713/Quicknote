@@ -28,6 +28,7 @@ namespace QuickNote
         Color lineColor = Color.Black;
         string fileName = null;
         Timer saveTime;
+        private Color backcolor;
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -36,7 +37,7 @@ namespace QuickNote
         {
             InitializeComponent();
             graphics = MainTextBox.CreateGraphics();
-
+            
             pen = new Pen(Color.Black, 5);
             EraserButton.Enabled = false;
         }
@@ -639,6 +640,16 @@ namespace QuickNote
                 textWriter.Close();
             }
         }
-
+        /// <summary>
+        /// Allows user to clear the notepad.
+        /// </summary>
+        /// <param name="sender"> A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
+        private void clearNoteButton_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(MainTextBox.BackColor);
+            MainTextBox.Clear();
+            MainTextBox.Focus();
+        }
     }
 }

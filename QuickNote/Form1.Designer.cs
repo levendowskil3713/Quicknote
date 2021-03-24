@@ -72,6 +72,7 @@ namespace QuickNote
             this.HyperlinkButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalendarButton = new System.Windows.Forms.ToolStripButton();
+            this.clearNoteButton = new System.Windows.Forms.ToolStripButton();
             this.MainToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@ namespace QuickNote
             this.MainTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainTextBox.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextBox.Location = new System.Drawing.Point(0, 32);
-            this.MainTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MainTextBox.Name = "MainTextBox";
             this.MainTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.MainTextBox.Size = new System.Drawing.Size(974, 761);
@@ -123,7 +124,8 @@ namespace QuickNote
             this.toolStripSeparator4,
             this.HyperlinkButton,
             this.toolStripSeparator5,
-            this.CalendarButton});
+            this.CalendarButton,
+            this.clearNoteButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(980, 31);
@@ -163,7 +165,6 @@ namespace QuickNote
             this.FontStyleComboBox.Name = "FontStyleComboBox";
             this.FontStyleComboBox.Size = new System.Drawing.Size(94, 31);
             this.FontStyleComboBox.Text = "Font Style";
-            this.MainTextBox.SelectionChanged += new System.EventHandler(this.MainTextBox_SelectionChanged);
             this.FontStyleComboBox.SelectedIndexChanged += new System.EventHandler(this.FontStyleComboBox_SelectedIndexChange);
             // 
             // FontSizeComboBox
@@ -485,6 +486,16 @@ namespace QuickNote
             this.CalendarButton.Size = new System.Drawing.Size(35, 35);
             this.CalendarButton.Text = "Calendar";
             // 
+            // clearNoteButton
+            // 
+            this.clearNoteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.clearNoteButton.Image = ((System.Drawing.Image)(resources.GetObject("clearNoteButton.Image")));
+            this.clearNoteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearNoteButton.Name = "clearNoteButton";
+            this.clearNoteButton.Size = new System.Drawing.Size(24, 28);
+            this.clearNoteButton.Text = "ClearNote";
+            this.clearNoteButton.Click += new System.EventHandler(this.clearNoteButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +505,7 @@ namespace QuickNote
             this.Controls.Add(this.MainToolStrip);
             this.Controls.Add(this.MainTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "QuickNote";
             this.Load += new System.EventHandler(this.QuickNote_Load);
@@ -546,6 +557,7 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     private System.Windows.Forms.ToolStripMenuItem blackToolStripMenuItem;
-  }
+        private System.Windows.Forms.ToolStripButton clearNoteButton;
+    }
 }
 
