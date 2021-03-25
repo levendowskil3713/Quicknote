@@ -491,6 +491,7 @@ namespace QuickNote
                 EraserButton.Enabled = true;
 
                 MainTextBox.Cursor = Cursors.Cross;
+                MainTextBox.ReadOnly = true;
             }
             else
             {
@@ -505,6 +506,7 @@ namespace QuickNote
                 pen.Color = lineColor;
 
                 MainTextBox.Cursor = Cursors.IBeam;
+                MainTextBox.ReadOnly = false;
             }
         }
 
