@@ -704,6 +704,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Prompts user to search file explorer for their image, uploads image to MainTextBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ImportImageButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
