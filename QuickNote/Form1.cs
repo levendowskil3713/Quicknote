@@ -550,6 +550,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Sets the pen color to white to allow user to erase other pen marks. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EraserButton_Click(object sender, EventArgs e)
         {
             if(isErasing == false)
@@ -568,6 +573,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Sets the font color to the selected drop down item. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FontColorButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             MainTextBox.SelectionColor = e.ClickedItem.BackColor;
@@ -600,6 +610,11 @@ namespace QuickNote
 
         }
 
+        /// <summary>
+        /// Sets the color of the pen. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LineColorSplitButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             lineColor = e.ClickedItem.BackColor;
@@ -611,6 +626,11 @@ namespace QuickNote
           //Do nothing
         }
 
+        /// <summary>
+        /// Prompts the user to select a save location for the file. 
+        /// </summary>
+        /// <param name="sender">A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -625,6 +645,9 @@ namespace QuickNote
             
         }
 
+        /// <summary>
+        /// Creates a timer to autosave every 30 seconds. 
+        /// </summary>
         public void InitiatlizeTimer() 
         {
             saveTime = new Timer();
@@ -633,6 +656,11 @@ namespace QuickNote
             saveTime.Start();
         }
 
+        /// <summary>
+        /// Saves the file during each tick event. 
+        /// </summary>
+        /// <param name="sender">A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
         private void saveTime_Tick(object sender, EventArgs e)
         {
             if (fileName != null)
@@ -642,6 +670,7 @@ namespace QuickNote
                 textWriter.Close();
             }
         }
+
         /// <summary>
         /// Allows user to clear the notepad.
         /// </summary>
@@ -652,6 +681,27 @@ namespace QuickNote
             graphics.Clear(MainTextBox.BackColor);
             MainTextBox.Clear();
             MainTextBox.Focus();
+        }
+
+        /// <summary>
+        /// Loads file from file explorer and writes text to MainTextBox.
+        /// </summary>
+        /// <param name="sender">A reference to the object that raised the event. </param>
+        /// <param name="e"> Contains the function's event data. </param>
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            String line;
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                fileName = fileDialog.FileName;
+                System.IO.TextReader textReader = new System.IO.StreamReader(fileName);
+                while((line = textReader.ReadLine()) != null)
+                {
+                    MainTextBox.AppendText(line);
+                }
+                textReader.Close();
+            }
         }
     }
 }

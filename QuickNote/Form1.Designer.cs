@@ -153,6 +153,7 @@ namespace QuickNote
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(35, 35);
             this.LoadButton.Text = "Load";
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // toolStripSeparator1
             // 
