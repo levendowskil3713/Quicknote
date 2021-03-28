@@ -446,6 +446,7 @@ namespace QuickNote
             this.ImportImageButton.Name = "ImportImageButton";
             this.ImportImageButton.Size = new System.Drawing.Size(35, 35);
             this.ImportImageButton.Text = "Import Image";
+            this.ImportImageButton.Click += new System.EventHandler(this.ImportImageButton_Click);
             // 
             // EditImageButton
             // 

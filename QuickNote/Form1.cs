@@ -682,7 +682,7 @@ namespace QuickNote
             MainTextBox.Clear();
             MainTextBox.Focus();
         }
-
+        
         /// <summary>
         /// Loads file from file explorer and writes text to MainTextBox.
         /// </summary>
@@ -701,6 +701,18 @@ namespace QuickNote
                     MainTextBox.AppendText(line);
                 }
                 textReader.Close();
+            }
+        }
+
+        private void ImportImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                fileName = fileDialog.FileName;
+                System.Drawing.Image img = System.Drawing.Image.FromFile(fileName);
+                Clipboard.SetImage(img);
+                MainTextBox.Paste();
             }
         }
     }
