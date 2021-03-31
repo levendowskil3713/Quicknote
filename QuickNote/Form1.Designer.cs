@@ -73,6 +73,8 @@ namespace QuickNote
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalendarButton = new System.Windows.Forms.ToolStripButton();
             this.clearNoteButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.MainToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +110,7 @@ namespace QuickNote
             this.FontStyleComboBox,
             this.FontSizeComboBox,
             this.FontColorButton,
+            this.toolStripButton1,
             this.BoldButton,
             this.UnderlineButton,
             this.ItalicsButton,
@@ -498,6 +501,16 @@ namespace QuickNote
             this.clearNoteButton.Text = "ClearNote";
             this.clearNoteButton.Click += new System.EventHandler(this.clearNoteButton_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 28);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,6 +573,8 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     private System.Windows.Forms.ToolStripMenuItem blackToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton clearNoteButton;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

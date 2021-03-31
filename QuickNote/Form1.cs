@@ -720,5 +720,17 @@ namespace QuickNote
                 MainTextBox.Paste();
             }
         }
+        /// <summary>
+        /// Prompts user to change color of selected text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            {
+                MainTextBox.SelectionColor = colorDialog1.Color;
+            }
+        }
     }
 }
