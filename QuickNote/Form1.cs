@@ -16,16 +16,25 @@ namespace QuickNote
     {
         //font size of the main text box
         float fontSize = 11;
+        //the style of the currently selected font
         float fontStyle; //can we get rid of this?
+        //the thickness of lines created via the drawing tool
         float penSize;
+        //Object that stores lines created via the drawing tool
         Graphics graphics;
         int x = -1;
         int y = -1;
+        //true when the cursor is moving
         bool moving = false;
+        //the pen object used in the drawing tool
         Pen pen;
+        //true when the drawing tool is selected
         bool isDrawing = false;
+        //true when the eraser tool is selected
         bool isErasing = false;
+        //the currently selected drawing tool line color
         Color lineColor = Color.Black;
+
         string fileName = null;
         Timer saveTime;
         private Color backcolor;
@@ -84,22 +93,7 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
                 }
 
                 BoldButton.BackColor = Color.White;
@@ -118,22 +112,7 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Bold);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Bold);
                 }
 
                 BoldButton.BackColor = Color.Silver;
@@ -160,23 +139,8 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
-                 }
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
+                }
 
                 UnderlineButton.BackColor = Color.White;
             }
@@ -194,22 +158,7 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Underline);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Underline);
                 }
 
                 UnderlineButton.BackColor = Color.Silver;
@@ -236,22 +185,7 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
                 }
 
                 ItalicsButton.BackColor = Color.White;
@@ -270,22 +204,7 @@ namespace QuickNote
 
                 else
                 {
-                    MainTextBox.Suspend();
-
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style | FontStyle.Italic);
-                    }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-                    MainTextBox.Resume();
+                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Italic);
                 }
 
                 ItalicsButton.BackColor = Color.Silver;
@@ -299,24 +218,7 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void FontStyleComboBox_SelectedIndexChange(object sender, EventArgs e)
         {
-            MainTextBox.Suspend();
-
-            //the length of the selected text
-            int selectedTextLength = MainTextBox.SelectionLength;
-            //the starting index of the selected text
-            int selectedTextStart = MainTextBox.SelectionStart;
-
-            //changes each character individually to preserve formatting
-            for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-            {
-                MainTextBox.Select(i, 1);
-                MainTextBox.SelectionFont = new Font(FontStyleComboBox.Text, MainTextBox.SelectionFont.Size, MainTextBox.SelectionFont.Style);
-            }
-
-            //re-selects the text segment
-            MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-            MainTextBox.Resume();
+            MainTextBox.ChangeFontStyle(FontStyleComboBox.Text);
         }
 
         /// <summary>
@@ -326,26 +228,8 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void FontSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainTextBox.Suspend();
-
-            //the length of the selected text
-            int selectedTextLength = MainTextBox.SelectionLength;
-            //the starting index of the selected text
-            int selectedTextStart = MainTextBox.SelectionStart;
-            //the selected font size
             fontSize = float.Parse(FontSizeComboBox.Text);
-
-            //changes each character individually to preserve formatting
-            for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-            {
-                MainTextBox.Select(i, 1);
-                MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style);
-            }
-
-            //re-selects the text segment
-            MainTextBox.Select(selectedTextStart, selectedTextLength);
-
-            MainTextBox.Resume();
+            MainTextBox.ChangeFontSize(fontSize);
         }
 
         /// <summary>
@@ -621,11 +505,16 @@ namespace QuickNote
             pen.Color = lineColor;
         }
 
+        /// <summary>
+        /// This prevents the program from crashing when the LineColor button is clicked, but does not implement any features itself.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LineColorSplitButton_ButtonClick(object sender, EventArgs e)
         {
           //Do nothing
         }
-
+        
         /// <summary>
         /// Prompts the user to select a save location for the file. 
         /// </summary>
@@ -720,6 +609,7 @@ namespace QuickNote
                 MainTextBox.Paste();
             }
         }
+
         /// <summary>
         /// Prompts user to change color of selected text
         /// </summary>
