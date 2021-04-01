@@ -465,33 +465,6 @@ namespace QuickNote
         private void FontColorButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             MainTextBox.SelectionColor = e.ClickedItem.BackColor;
-            //Changes the color of the selected text
-            //the length of the selected text
-            int selectedTextLength = MainTextBox.SelectionLength;
-
-                if (selectedTextLength < 1)
-                {
-                    MainTextBox.SelectionColor = MainTextBox.SelectionColor = e.ClickedItem.BackColor;
-                }
-
-                else
-                {
-                    //the starting index of the selected text
-                    int selectedTextStart = MainTextBox.SelectionStart;
-
-                    //changes each character individually to preserve formatting
-                    for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
-                    {
-                        MainTextBox.Select(i, 1);
-                        MainTextBox.SelectionColor = e.ClickedItem.BackColor;
-                }
-
-                    //re-selects the text segment
-                    MainTextBox.Select(selectedTextStart, selectedTextLength);
-                }
-
-                FontColorButton.BackColor = e.ClickedItem.BackColor;
-
         }
 
         /// <summary>
