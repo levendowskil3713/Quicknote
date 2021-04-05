@@ -43,6 +43,7 @@ namespace QuickNote
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.BoldButton = new System.Windows.Forms.ToolStripButton();
             this.UnderlineButton = new System.Windows.Forms.ToolStripButton();
             this.ItalicsButton = new System.Windows.Forms.ToolStripButton();
@@ -73,9 +74,10 @@ namespace QuickNote
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.CalendarButton = new System.Windows.Forms.ToolStripButton();
             this.clearNoteButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTextBox
@@ -232,6 +234,16 @@ namespace QuickNote
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(105, 22);
             this.toolStripMenuItem3.Text = "Blue";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 28);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // BoldButton
             // 
@@ -501,15 +513,16 @@ namespace QuickNote
             this.clearNoteButton.Text = "ClearNote";
             this.clearNoteButton.Click += new System.EventHandler(this.clearNoteButton_Click);
             // 
-            // toolStripButton1
+            // pictureBox1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.pictureBox1.Location = new System.Drawing.Point(460, 258);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown_1);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove_1);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
             // 
             // MainForm
             // 
@@ -517,6 +530,7 @@ namespace QuickNote
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(974, 794);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MainToolStrip);
             this.Controls.Add(this.MainTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -526,6 +540,7 @@ namespace QuickNote
             this.Load += new System.EventHandler(this.QuickNote_Load);
             this.MainToolStrip.ResumeLayout(false);
             this.MainToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
     }
@@ -575,6 +590,7 @@ namespace QuickNote
         private System.Windows.Forms.ToolStripButton clearNoteButton;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

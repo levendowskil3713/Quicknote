@@ -38,6 +38,9 @@ namespace QuickNote
         string fileName = null;
         Timer saveTime;
         private Color backcolor;
+        private bool isDragging;
+        private int currentX;
+        private int currentY;
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -577,9 +580,9 @@ namespace QuickNote
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 fileName = fileDialog.FileName;
-                System.Drawing.Image img = System.Drawing.Image.FromFile(fileName);
-                Clipboard.SetImage(img);
-                MainTextBox.Paste();
+                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                pictureBox1.Load(fileName);
+             
             }
         }
 
@@ -594,6 +597,28 @@ namespace QuickNote
             {
                 MainTextBox.SelectionColor = colorDialog1.Color;
             }
+        }
+
+        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+
+            currentX = e.X;
+            currentY = e.Y;
+        }
+
+        private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
+                pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
+            }
+        }
+
+        private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
         }
     }
 }
