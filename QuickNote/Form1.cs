@@ -38,6 +38,7 @@ namespace QuickNote
         string fileName = null;
         Timer saveTime;
         private Color backcolor;
+        private bool isRotating;
         private bool isDragging;
         private int currentX;
         private int currentY;
@@ -601,10 +602,18 @@ namespace QuickNote
 
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
-            isDragging = true;
-
-            currentX = e.X;
-            currentY = e.Y;
+            if (e.Button == MouseButtons.Left)
+            {
+              isDragging = true;
+              currentX = e.X;
+              currentY = e.Y;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+              isRotating = true;
+              currentX = e.X;
+              currentY = e.Y;
+            }
         }
 
         private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
@@ -614,11 +623,35 @@ namespace QuickNote
                 pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
                 pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
             }
+
+            if(isRotating)
+            {
+              /*System.Drawing.Image img = pictureBox1.Image;
+              Graphics g = Graphics.FromImage(img);
+              g.RotateTransform(e.Y - currentY);
+              Bitmap bitMap = new Bitmap(img.Width, img.Height, g);
+              for(int i = 0; i < img.Width; i++)
+              {
+                  for(int j = 0; j < img.Height; j++)
+                  {
+                      bitMap.SetPixel(i, j, Color.Black);
+                  }
+              }
+              img = bitMap;
+              pictureBox1.Image = img;*/
+            }
         }
 
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
         {
-            isDragging = false;
+            if (e.Button == MouseButtons.Left)
+            {
+              isDragging = false;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+              isRotating = false;
+            }
         }
     }
 }
