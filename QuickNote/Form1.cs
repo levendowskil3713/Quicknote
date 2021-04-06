@@ -16,8 +16,7 @@ namespace QuickNote
     {
         //font size of the main text box
         float fontSize = 11;
-        //the style of the currently selected font
-        float fontStyle; //can we get rid of this?
+        //the style of the currently selected font (unused)
         //the thickness of lines created via the drawing tool
         float penSize;
         //Object that stores lines created via the drawing tool
@@ -35,12 +34,19 @@ namespace QuickNote
         //the currently selected drawing tool line color
         Color lineColor = Color.Black;
 
+        //the file path for the image to be added
         string fileName = null;
+        //a timer
         Timer saveTime;
+        //a color intended to be used for UI element background (unused)
         private Color backcolor;
+        //set to true of a selected image is rotating
         private bool isRotating;
+        //set to true if the selected image is being translated
         private bool isDragging;
+        //the current horizontal coordinate of the mouse cursor
         private int currentX;
+        //the current vertical coordinate of the mouse cursor
         private int currentY;
 
         /// <summary>
@@ -600,6 +606,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Detects when the user has pressed down the left or right mouse button while hovering over an image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -616,6 +627,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Moves a selected image while the left mouse button is held. Rotates the selected image while the right mouse button is held.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -626,6 +642,7 @@ namespace QuickNote
 
             if(isRotating)
             {
+              //This technique is not practicle. We chould draw our images as graphics instead.
               /*System.Drawing.Image img = pictureBox1.Image;
               Graphics g = Graphics.FromImage(img);
               g.RotateTransform(e.Y - currentY);
@@ -642,6 +659,11 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Sets isDragging to false when the left mouse button is released. Sets isRotating to false when the right mouse button is released.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
