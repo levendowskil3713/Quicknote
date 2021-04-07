@@ -675,5 +675,7 @@ namespace QuickNote
               isRotating = false;
             }
         }
+
+       
     }
 }
