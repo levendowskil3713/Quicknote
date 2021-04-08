@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Documents;
 using System.Windows.Controls;
+using System.Collections;
 
 namespace QuickNote
 {
@@ -49,6 +50,9 @@ namespace QuickNote
         //the current vertical coordinate of the mouse cursor
         private int currentY;
 
+        //list of pictures
+        List<PictureBox> pictureBoxes = new List<PictureBox>();
+
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
         /// </summary>
@@ -80,6 +84,22 @@ namespace QuickNote
                 FontStyleComboBox.Items.Add(font.Name.ToString());
             }
 
+            //TEMP
+            pictureBox1.Visible = false;
+
+            /*PictureBox start_picture = new PictureBox
+            {
+                Name = "pictureBox",
+                Size = new Size(19, 32),
+                Location = new Point(100, 100),
+                Visible = true,
+                Image = Bitmap.FromFile(@"C:\Users\LevendowskiLuke\OneDrive - University of Wisconsin-Stout\Desktop\Images\parrot.png"),
+                BackColor = Color.Black
+            };
+            this.Controls.Add(start_picture);
+            start_picture.Show();
+            start_picture.BringToFront();*/
+
             InitiatlizeTimer();
         }
 
@@ -90,20 +110,27 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void BoldButton_Click(object sender, EventArgs e)
         {
+            int selectionLength = MainTextBox.SelectionLength;
+
+            if (MainTextBox.SelectionFont == null)
+            {
+                MainTextBox.SelectionLength = 1;
+            }
+            
             //un-bolds selected text if the selected text is currently bolded
             if (MainTextBox.SelectionFont.Bold == true)
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Bold);
+                    MainTextBox.ChangeFontStyle(~FontStyle.Bold, false);
                 }
 
                 BoldButton.BackColor = Color.White;
@@ -113,16 +140,16 @@ namespace QuickNote
             else
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Bold);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Bold);
+                    MainTextBox.ChangeFontStyle(FontStyle.Bold, true);
                 }
 
                 BoldButton.BackColor = Color.Silver;
@@ -136,20 +163,27 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void UnderlineButton_Click(object sender, EventArgs e)
         {
+            int selectionLength = MainTextBox.SelectionLength;
+
+            if (MainTextBox.SelectionFont == null)
+            {
+                MainTextBox.SelectionLength = 1;
+            }
+
             //un-underlines selected text if the selected text is currently underlined
             if (MainTextBox.SelectionFont.Underline == true)
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Underline);
+                    MainTextBox.ChangeFontStyle(~FontStyle.Underline, false);
                 }
 
                 UnderlineButton.BackColor = Color.White;
@@ -159,16 +193,16 @@ namespace QuickNote
             else
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.Font.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Underline);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Underline);
+                    MainTextBox.ChangeFontStyle(FontStyle.Underline, true);
                 }
 
                 UnderlineButton.BackColor = Color.Silver;
@@ -182,20 +216,27 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void ItalicsButton_Click(object sender, EventArgs e)
         {
+            int selectionLength = MainTextBox.SelectionLength;
+
+            if (MainTextBox.SelectionFont == null)
+            {
+                MainTextBox.SelectionLength = 1;
+            }
+
             //un-italicizes selected text if the selected text is currently italicizes
             if (MainTextBox.SelectionFont.Italic == true)
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style & ~FontStyle.Italic);
+                    MainTextBox.ChangeFontStyle(~FontStyle.Italic, false);
                 }
 
                 ItalicsButton.BackColor = Color.White;
@@ -205,16 +246,16 @@ namespace QuickNote
             else
             {
                 //the length of the selected text
-                int selectedTextLength = MainTextBox.SelectionLength;
+                MainTextBox.SelectionLength = selectionLength;
 
-                if (selectedTextLength < 1)
+                if (MainTextBox.SelectionLength < 1)
                 {
                     MainTextBox.SelectionFont = new Font(MainTextBox.SelectionFont.FontFamily, fontSize, MainTextBox.SelectionFont.Style | FontStyle.Italic);
                 }
 
                 else
                 {
-                    MainTextBox.ChangeFontStyle(MainTextBox.SelectionFont.Style | FontStyle.Italic);
+                    MainTextBox.ChangeFontStyle(FontStyle.Italic, true);
                 }
 
                 ItalicsButton.BackColor = Color.Silver;
@@ -587,9 +628,28 @@ namespace QuickNote
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 fileName = fileDialog.FileName;
-                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-                pictureBox1.Load(fileName);
-             
+
+                //OLD
+                //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                //pictureBox1.Load(fileName);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Name = "pictureBox",
+                    Location = new Point(100, 100),
+                    Visible = true,
+                    Image = Bitmap.FromFile(fileName),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    Anchor = (AnchorStyles.Top | AnchorStyles.Left)
+                };
+                pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown_1);
+                pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove_1);
+                pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
+                this.Controls.Add(pictureBox);
+                pictureBox.Show();
+                pictureBox.BringToFront();
+                MainToolStrip.BringToFront();
+                pictureBoxes.Add(pictureBox);
             }
         }
 
@@ -636,26 +696,32 @@ namespace QuickNote
         {
             if (isDragging)
             {
-                pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
-                pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
+                //pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
+                //pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
+                int index = -1;
+          
+                for(int i = 0; i < pictureBoxes.Count; i++)
+                {
+                    if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 2)) && 
+                       Cursor.Position.X >= (pictureBoxes[i].Left - (pictureBoxes[i].Width * 0)) &&
+                       Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 2)) &&
+                       Cursor.Position.Y >= (pictureBoxes[i].Top - (pictureBoxes[i].Height * 0)))
+                    {
+                          index = i;
+                          break;
+                    }
+                }
+
+                if(index != -1)
+                {
+                    pictureBoxes[index].Top = pictureBoxes[index].Top + (e.Y - currentY);
+                    pictureBoxes[index].Left = pictureBoxes[index].Left + (e.X - currentX);
+                }
             }
 
             if(isRotating)
             {
-              //This technique is not practicle. We chould draw our images as graphics instead.
-              /*System.Drawing.Image img = pictureBox1.Image;
-              Graphics g = Graphics.FromImage(img);
-              g.RotateTransform(e.Y - currentY);
-              Bitmap bitMap = new Bitmap(img.Width, img.Height, g);
-              for(int i = 0; i < img.Width; i++)
-              {
-                  for(int j = 0; j < img.Height; j++)
-                  {
-                      bitMap.SetPixel(i, j, Color.Black);
-                  }
-              }
-              img = bitMap;
-              pictureBox1.Image = img;*/
+                //rotate logic
             }
         }
 

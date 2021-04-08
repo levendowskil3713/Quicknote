@@ -20,7 +20,8 @@ namespace QuickNote
     /// </summary>
     /// <param name="RTB">The rich text box bring manipulated</param>
     /// <param name="fontStyle">The font style to be added.</param>
-    public static void ChangeFontStyle(this System.Windows.Forms.RichTextBox RTB, FontStyle fontStyle)
+    /// <param name="add">Set to true when adding a style to the font. Set to false when removing a style from a font.</param>
+    public static void ChangeFontStyle(this System.Windows.Forms.RichTextBox RTB, FontStyle fontStyle, bool add)
     {
       RTB.Suspend();
 
@@ -33,7 +34,14 @@ namespace QuickNote
       for (int i = selectedTextStart; i < (selectedTextStart + selectedTextLength); i++)
       {
         RTB.Select(i, 1);
-        RTB.SelectionFont = new Font(RTB.SelectionFont.FontFamily, RTB.SelectionFont.Size, fontStyle);
+        if(add == true)
+        {
+          RTB.SelectionFont = new Font(RTB.SelectionFont.FontFamily, RTB.SelectionFont.Size, RTB.SelectionFont.Style | fontStyle);
+        }
+        else
+        {
+          RTB.SelectionFont = new Font(RTB.SelectionFont.FontFamily, RTB.SelectionFont.Size, RTB.SelectionFont.Style & fontStyle);
+        }
       }
 
       //re-selects the text segment
