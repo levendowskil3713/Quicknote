@@ -98,11 +98,7 @@ namespace QuickNote
         private void BoldButton_Click(object sender, EventArgs e)
         {
             int selectionLength = MainTextBox.SelectionLength;
-
-            if (MainTextBox.SelectionFont == null)
-            {
-                MainTextBox.SelectionLength = 1;
-            }
+            MainTextBox.SelectionLength = 1;
             
             //un-bolds selected text if the selected text is currently bolded
             if (MainTextBox.SelectionFont.Bold == true)
@@ -151,11 +147,7 @@ namespace QuickNote
         private void UnderlineButton_Click(object sender, EventArgs e)
         {
             int selectionLength = MainTextBox.SelectionLength;
-
-            if (MainTextBox.SelectionFont == null)
-            {
-                MainTextBox.SelectionLength = 1;
-            }
+            MainTextBox.SelectionLength = 1;
 
             //un-underlines selected text if the selected text is currently underlined
             if (MainTextBox.SelectionFont.Underline == true)
@@ -204,11 +196,7 @@ namespace QuickNote
         private void ItalicsButton_Click(object sender, EventArgs e)
         {
             int selectionLength = MainTextBox.SelectionLength;
-
-            if (MainTextBox.SelectionFont == null)
-            {
-                MainTextBox.SelectionLength = 1;
-            }
+            MainTextBox.SelectionLength = 1;
 
             //un-italicizes selected text if the selected text is currently italicizes
             if (MainTextBox.SelectionFont.Italic == true)
@@ -256,7 +244,15 @@ namespace QuickNote
         /// <param name="e">Contains the function's event data.</param>
         private void FontStyleComboBox_SelectedIndexChange(object sender, EventArgs e)
         {
-            MainTextBox.ChangeFontStyle(FontStyleComboBox.Text);
+            if (MainTextBox.SelectionLength < 1)
+            {
+                MainTextBox.SelectionFont = new Font(FontStyleComboBox.Text, fontSize, MainTextBox.SelectionFont.Style);
+            }
+
+            else
+            {
+                MainTextBox.ChangeFontStyle(FontStyleComboBox.Text);
+            }
         }
 
         /// <summary>
