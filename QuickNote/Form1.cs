@@ -87,19 +87,6 @@ namespace QuickNote
             //TEMP
             pictureBox1.Visible = false;
 
-            /*PictureBox start_picture = new PictureBox
-            {
-                Name = "pictureBox",
-                Size = new Size(19, 32),
-                Location = new Point(100, 100),
-                Visible = true,
-                Image = Bitmap.FromFile(@"C:\Users\LevendowskiLuke\OneDrive - University of Wisconsin-Stout\Desktop\Images\parrot.png"),
-                BackColor = Color.Black
-            };
-            this.Controls.Add(start_picture);
-            start_picture.Show();
-            start_picture.BringToFront();*/
-
             InitiatlizeTimer();
         }
 
@@ -578,9 +565,17 @@ namespace QuickNote
         {
             if (fileName != null)
             {
-                System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
-                textWriter.Write(MainTextBox.Text);
-                textWriter.Close();
+                try
+                {
+                    System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
+                    textWriter.Write(MainTextBox.Text);
+                    textWriter.Close();
+                }
+
+                catch (Exception)
+                {
+                    //NYI
+                }
             }
         }
 
@@ -696,15 +691,17 @@ namespace QuickNote
         {
             if (isDragging)
             {
+                //Old
                 //pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
                 //pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
+
                 int index = -1;
           
                 for(int i = 0; i < pictureBoxes.Count; i++)
                 {
-                    if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 2)) && 
+                    if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 3)) && 
                        Cursor.Position.X >= (pictureBoxes[i].Left - (pictureBoxes[i].Width * 0)) &&
-                       Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 2)) &&
+                       Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 3)) &&
                        Cursor.Position.Y >= (pictureBoxes[i].Top - (pictureBoxes[i].Height * 0)))
                     {
                           index = i;
