@@ -53,6 +53,9 @@ namespace QuickNote
         //list of pictures
         List<PictureBox> pictureBoxes = new List<PictureBox>();
 
+        //index of the selected image
+        int selectedImageIndex = -1;
+
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
         /// </summary>
@@ -642,6 +645,13 @@ namespace QuickNote
                 MainToolStrip.BringToFront();
                 pictureBoxes.Add(pictureBox);
             }
+
+            //de-selecting selected image
+            selectedImageIndex = -1;
+            for(int i = 0; i < pictureBoxes.Count; i++)
+            {
+                pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.None;
+            }
         }
 
         /// <summary>
@@ -667,6 +677,32 @@ namespace QuickNote
             if (e.Button == MouseButtons.Left)
             {
               isDragging = true;
+              for(int i = 0; i < pictureBoxes.Count; i++)
+              {
+                  if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 2)) && 
+                      Cursor.Position.X >= (pictureBoxes[i].Left - (pictureBoxes[i].Width * 0)) &&
+                      Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 2)) &&
+                      Cursor.Position.Y >= (pictureBoxes[i].Top - (pictureBoxes[i].Height * 0)))
+                  {
+                        selectedImageIndex = i;
+                        break;
+                  }
+              }
+
+              for(int i = 0; i < pictureBoxes.Count; i++)
+              {
+                  if(i == selectedImageIndex)
+                  {
+                      pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                      pictureBoxes[i].BringToFront();
+                      MainToolStrip.BringToFront();
+                  }
+
+                  else
+                  {
+                      pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.None;
+                  }
+              }
               currentX = e.X;
               currentY = e.Y;
             }
@@ -691,24 +727,10 @@ namespace QuickNote
                 //pictureBox1.Top = pictureBox1.Top + (e.Y - currentY);
                 //pictureBox1.Left = pictureBox1.Left + (e.X - currentX);
 
-                int index = -1;
-          
-                for(int i = 0; i < pictureBoxes.Count; i++)
+                if (selectedImageIndex != -1)
                 {
-                    if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 3)) && 
-                       Cursor.Position.X >= (pictureBoxes[i].Left - (pictureBoxes[i].Width * 0)) &&
-                       Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 3)) &&
-                       Cursor.Position.Y >= (pictureBoxes[i].Top - (pictureBoxes[i].Height * 0)))
-                    {
-                          index = i;
-                          break;
-                    }
-                }
-
-                if(index != -1)
-                {
-                    pictureBoxes[index].Top = pictureBoxes[index].Top + (e.Y - currentY);
-                    pictureBoxes[index].Left = pictureBoxes[index].Left + (e.X - currentX);
+                    pictureBoxes[selectedImageIndex].Top = pictureBoxes[selectedImageIndex].Top + (e.Y - currentY);
+                    pictureBoxes[selectedImageIndex].Left = pictureBoxes[selectedImageIndex].Left + (e.X - currentX);
                 }
             }
 
