@@ -679,10 +679,10 @@ namespace QuickNote
               isDragging = true;
               for(int i = 0; i < pictureBoxes.Count; i++)
               {
-                  if(Cursor.Position.X <= (pictureBoxes[i].Left + (pictureBoxes[i].Width * 2)) && 
-                      Cursor.Position.X >= (pictureBoxes[i].Left - (pictureBoxes[i].Width * 0)) &&
-                      Cursor.Position.Y <= (pictureBoxes[i].Top + (pictureBoxes[i].Height * 2)) &&
-                      Cursor.Position.Y >= (pictureBoxes[i].Top - (pictureBoxes[i].Height * 0)))
+                  if(Cursor.Position.X >= pictureBoxes[i].Location.X + pictureBoxes[i].Width
+                  && Cursor.Position.X <= pictureBoxes[i].Location.X + pictureBoxes[i].Width * 2
+                  && Cursor.Position.Y >= pictureBoxes[i].Location.Y + pictureBoxes[i].Height
+                  && Cursor.Position.Y <= pictureBoxes[i].Location.Y + pictureBoxes[i].Height * 2)
                   {
                         selectedImageIndex = i;
                         break;
