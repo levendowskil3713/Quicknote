@@ -432,7 +432,8 @@ namespace QuickNote
       this.EditImageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.EditImageButton.Name = "EditImageButton";
       this.EditImageButton.Size = new System.Drawing.Size(35, 35);
-      this.EditImageButton.Text = "Edit Image";
+      this.EditImageButton.Text = "Delete Image";
+      this.EditImageButton.Click += new System.EventHandler(this.EditImageButton_Click);
       // 
       // toolStripSeparator4
       // 
@@ -477,7 +478,7 @@ namespace QuickNote
       // pictureBox1
       // 
       this.pictureBox1.Location = new System.Drawing.Point(653, 338);
-      this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+      this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(133, 62);
       this.pictureBox1.TabIndex = 2;

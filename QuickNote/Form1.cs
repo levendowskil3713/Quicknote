@@ -757,6 +757,13 @@ namespace QuickNote
             }
         }
 
-       
+    private void EditImageButton_Click(object sender, EventArgs e)
+    {
+        if (selectedImageIndex != -1)
+        {
+           this.Controls.Remove(pictureBoxes[selectedImageIndex]);
+           pictureBoxes.RemoveAt(selectedImageIndex);
+        }
     }
+  }
 }
