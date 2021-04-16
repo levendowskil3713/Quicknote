@@ -89,6 +89,8 @@ namespace QuickNote
 
             //TEMP
             pictureBox1.Visible = false;
+            monthCalendar1.Visible = false;
+            monthCalendar1.MaxSelectionCount = 1;
 
             InitiatlizeTimer();
         }
@@ -765,5 +767,19 @@ namespace QuickNote
            pictureBoxes.RemoveAt(selectedImageIndex);
         }
     }
-  }
+
+        private void CalendarButton_Click(object sender, EventArgs e)
+        {
+            monthCalendar1.Visible = true;
+            
+            CalendarButton.DoubleClick += clicked;
+        }
+
+        private void clicked(object sender, EventArgs e)
+        {
+            monthCalendar1.Visible = false;
+        }
+
+     
+    }
 }
