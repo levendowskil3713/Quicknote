@@ -53,6 +53,9 @@ namespace QuickNote
         //list of pictures
         List<PictureBox> pictureBoxes = new List<PictureBox>();
 
+        //list of drawings
+        List<Drawing> Drawings = new List<Drawing>();
+
         //index of the selected image
         int selectedImageIndex = -1;
 
@@ -392,9 +395,12 @@ namespace QuickNote
         {
             if (moving && x != -1 && y != -1 && isDrawing == true)
             {
+                Point startPoint = new Point(x, y);
                 graphics.DrawLine(pen, new Point(x, y), e.Location);
                 x = e.X;
                 y = e.Y;
+                //saving the information for the newly created line
+                Drawings.Add(new Drawing(startPoint, e.Location, lineColor, penSize));
             }
         }
 
@@ -590,6 +596,7 @@ namespace QuickNote
             graphics.Clear(MainTextBox.BackColor);
             MainTextBox.Clear();
             MainTextBox.Focus();
+            Drawings = new List<Drawing>();
         }
         
         /// <summary>
