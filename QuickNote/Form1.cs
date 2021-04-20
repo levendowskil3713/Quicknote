@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Documents;
 using System.Windows.Controls;
 using System.Collections;
+using System.IO;
 
 namespace QuickNote
 {
@@ -543,10 +544,26 @@ namespace QuickNote
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) 
             {
+                //saving text
                 fileName = fileDialog.FileName;
                 System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
                 textWriter.Write(MainTextBox.Text);
+
+                //saving drawings
+                for(int i = 0; i < Drawings.Count; i++)
+                {
+                    string drawingInfo = Drawings[i].getStartPoint().X.ToString()
+                    + "," + Drawings[i].getStartPoint().Y.ToString()
+                    + "," + Drawings[i].getEndPoint().X.ToString()
+                    + "," + Drawings[i].getEndPoint().Y.ToString()
+                    + "," + Drawings[i].getColor().ToString()
+                    + "," + Drawings[i].getThickness().ToString();
+
+                    textWriter.Write(drawingInfo + Environment.NewLine);
+                } 
+
                 textWriter.Close();
+                
             }
 
             
