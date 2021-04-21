@@ -73,6 +73,8 @@ namespace QuickNote
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.MainToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -445,11 +447,13 @@ namespace QuickNote
             // 
             this.HyperlinkButton.AutoSize = false;
             this.HyperlinkButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.HyperlinkButton.DoubleClickEnabled = true;
             this.HyperlinkButton.Image = ((System.Drawing.Image)(resources.GetObject("HyperlinkButton.Image")));
             this.HyperlinkButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.HyperlinkButton.Name = "HyperlinkButton";
             this.HyperlinkButton.Size = new System.Drawing.Size(35, 35);
             this.HyperlinkButton.Text = "Embed Hyperlink";
+            this.HyperlinkButton.Click += new System.EventHandler(this.HyperlinkButton_Click_1);
             // 
             // toolStripSeparator5
             // 
@@ -495,12 +499,33 @@ namespace QuickNote
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(729, 208);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(226, 20);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "youtube";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(817, 241);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(51, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Hyperlink";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(974, 794);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MainToolStrip);
@@ -514,6 +539,7 @@ namespace QuickNote
             this.MainToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -560,6 +586,8 @@ namespace QuickNote
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

@@ -59,6 +59,8 @@ namespace QuickNote
 
         //index of the selected image
         int selectedImageIndex = -1;
+        //Hyperlink object
+        LinkLabel dynamicLinkLabel = new LinkLabel();
 
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
@@ -66,6 +68,11 @@ namespace QuickNote
         public MainForm()
         {
             InitializeComponent();
+            linkLabel1.Visible = false;
+            Controls.Add(dynamicLinkLabel);
+            dynamicLinkLabel.LinkArea = new LinkArea(0, 22);
+            dynamicLinkLabel.LinkClicked += new LinkLabelLinkClickedEventHandler(linkLabel1_LinkClicked);
+            textBox1.Visible = false;
             graphics = MainTextBox.CreateGraphics();
             
             pen = new Pen(Color.Black, 5);
@@ -792,18 +799,51 @@ namespace QuickNote
         }
     }
 
+        //Method to enable all calendar features when clicked.
         private void CalendarButton_Click(object sender, EventArgs e)
         {
             monthCalendar1.Visible = true;
-            
-            CalendarButton.DoubleClick += clicked;
-        }
 
+            CalendarButton.DoubleClick += clicked;
+            CalendarButton.BackColor = Color.Silver;
+        }
+        //Method to disable and reset calendar button when double clicked
         private void clicked(object sender, EventArgs e)
         {
-            monthCalendar1.Visible = false;
-        }
 
-     
+            monthCalendar1.Visible = false;
+            CalendarButton.BackColor = Color.White;
+        }
+        //Method to disable hyperlink when it is double clicked by user.
+        private void clickedHyper(object sender, EventArgs e)
+        {
+            HyperlinkButton.BackColor = Color.White;
+            linkLabel1.Visible = false;
+            textBox1.Visible = false;
+        }
+        //Method to show hyperlink when clicked and allows user to enter in a website name and apply it during runtime.
+        private void HyperlinkButton_Click_1(object sender, EventArgs e)
+        {
+            linkLabel1.Visible = true;
+            textBox1.Visible = true;
+            HyperlinkButton.DoubleClick += clickedHyper;
+            HyperlinkButton.BackColor = Color.Silver;
+        }
+        //Clickable link that takes the user to a valid website or does nothing if site is invalid.
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dynamicLinkLabel.LinkVisited = true;
+            try
+            {
+                System.Diagnostics.Process.Start("http://www." + textBox1.Text + ".com");
+            }
+            catch (Exception)
+            {
+                //Do Nothing
+
+            }
+        }
+        
+
     }
 }
