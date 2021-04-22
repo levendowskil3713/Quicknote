@@ -554,9 +554,14 @@ namespace QuickNote
                 //saving text
                 fileName = fileDialog.FileName;
                 System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
-                textWriter.Write(MainTextBox.Text);
+                textWriter.WriteLine();
+                textWriter.WriteLine(MainTextBox.Text);
 
                 //saving drawings
+                textWriter.WriteLine();
+                textWriter.WriteLine("€--------------------------------€");
+                textWriter.WriteLine();
+
                 for(int i = 0; i < Drawings.Count; i++)
                 {
                     string drawingInfo = Drawings[i].getStartPoint().X.ToString()
@@ -567,6 +572,7 @@ namespace QuickNote
                     + "," + Drawings[i].getThickness().ToString();
 
                     textWriter.Write(drawingInfo + Environment.NewLine);
+                    textWriter.WriteLine();
                 } 
 
                 textWriter.Close();
@@ -583,7 +589,8 @@ namespace QuickNote
         {
             saveTime = new Timer();
             saveTime.Tick += new EventHandler(saveTime_Tick);
-            saveTime.Interval = 30000;
+            //saveTime.Interval = 30000;
+            saveTime.Interval = 99999999;
             saveTime.Start();
         }
 
@@ -629,16 +636,100 @@ namespace QuickNote
         /// <param name="sender">A reference to the object that raised the event. </param>
         /// <param name="e"> Contains the function's event data. </param>
         private void LoadButton_Click(object sender, EventArgs e)
-        {
+        {      
             String line;
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                //clearing notesheet
+                MainTextBox.Text = "";
+
                 fileName = fileDialog.FileName;
                 System.IO.TextReader textReader = new System.IO.StreamReader(fileName);
+                //set to true when drawing information has been reached
+                bool isDrawing = false;
                 while((line = textReader.ReadLine()) != null)
                 {
-                    MainTextBox.AppendText(line);
+                    if((line = textReader.ReadLine()) == "€--------------------------------€")
+                    {
+                          isDrawing = true;
+                    }
+
+                    if(isDrawing == false)
+                    {
+                          try
+                          {
+                              MainTextBox.AppendText(line);
+                          }
+                          catch(Exception)
+                          {
+                              //do nothing
+                          }
+                    }
+
+                    else
+                    {
+                        //draw
+                        string drawingInfo = line;
+                        List<int> commaIndices = new List<int>();
+                        int openBracketIndex = 0;
+                        int closedBracketIndex = 0;
+                        if(drawingInfo != null)
+                        {
+                            for(int i = 0; i < drawingInfo.Length; i++)
+                            {
+                                if(drawingInfo[i] == ',')
+                                {
+                                    commaIndices.Add(i);
+                                }
+
+                                if(drawingInfo[i] == '[')
+                                {
+                                    openBracketIndex = i;
+                                }
+
+                                if(drawingInfo[i] == ']')
+                                {
+                                    closedBracketIndex = i;
+                                }
+                            }
+
+                            try
+                            {
+                                //getting the indices of commas
+                                int xStartIndex = commaIndices[0];
+                                int yStartIndex = commaIndices[1];
+                                int xEndIndex = commaIndices[2];
+                                int yEndIndex = commaIndices[3];
+                                int colorIndex = commaIndices[4];
+                                
+                                //setting drawing values
+                                int xStart = Int32.Parse(drawingInfo.Substring(0, xStartIndex));
+                                int yStart = Int32.Parse(drawingInfo.Substring(xStartIndex + 1, yStartIndex - xStartIndex - 1));
+                                int xEnd = Int32.Parse(drawingInfo.Substring(yStartIndex + 1, xEndIndex - yStartIndex - 1));
+                                int yEnd = Int32.Parse(drawingInfo.Substring(xEndIndex + 1, yEndIndex - xEndIndex - 1));
+                                Color color = Color.FromName(drawingInfo.Substring(openBracketIndex + 1, closedBracketIndex - openBracketIndex - 1));
+                                int thickness = Int32.Parse(drawingInfo.Substring(colorIndex + 1, drawingInfo.Length - colorIndex - 1));
+
+                                //draws the line
+                                pen.Color = color;
+                                if(thickness > 0)
+                                {
+                                      pen.Width = thickness;
+                                }
+                                Point startPoint = new Point(xStart, yStart);
+                                Point endPoint = new Point(xEnd, yEnd);
+                                graphics.DrawLine(pen, startPoint, endPoint);
+
+                            }
+
+                            catch(Exception)
+                            {
+                                 //do nothing
+                                 //MainTextBox.AppendText("Failed");
+                            }
+                        }
+                    }
                 }
                 textReader.Close();
             }
