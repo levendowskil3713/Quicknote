@@ -579,7 +579,7 @@ namespace QuickNote
                 } 
 
                 textWriter.Close();
-
+                /*
                 int count = 0;
                 if (numImages == 0)
                 {
@@ -595,7 +595,7 @@ namespace QuickNote
                 {
                     using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\image4.bmp"))
                     {
-                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
+                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image2.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
                         count++;
                     }
                 }
@@ -604,7 +604,7 @@ namespace QuickNote
                 {
                     using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\image4.bmp"))
                     {
-                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
+                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image3.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
                         count++;
                     }
                 }
@@ -612,7 +612,7 @@ namespace QuickNote
                 {
                     Byte[] result = BitConverter.GetBytes(count);
                     fs.Write(result, 0, result.Length);
-                }
+                }*/
             }
 
             
@@ -776,7 +776,7 @@ namespace QuickNote
                         Console.WriteLine(temp.GetString(b));
                     }
                     numImages = Convert.ToInt32(b);
-                }*/
+                }
 
                 fileName = @"A:\AA--UW-STOUT\image1.bmp";
                 PictureBox pictureBox = new PictureBox
@@ -797,21 +797,21 @@ namespace QuickNote
                 pictureBox.BringToFront();
                 MainToolStrip.BringToFront();
                 pictureBoxes.Add(pictureBox);
-                /*
+                
                 if (numImages == 0)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
                 if (numImages == 1)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image2.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
                 if (numImages == 2)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image3.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
-                */
+                
                 numImages++;
                 //de-selecting selected image
                 selectedImageIndex = -1;
                 for (int i = 0; i < pictureBoxes.Count; i++)
                 {
                     pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.None;
-                }
+                }*/
             }
         }
 
@@ -848,14 +848,14 @@ namespace QuickNote
                 pictureBox.BringToFront();
                 MainToolStrip.BringToFront();
                 pictureBoxes.Add(pictureBox);
-                if (numImages == 0)
+                /*if (numImages == 0)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
                 if (numImages == 1)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image2.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
                 if (numImages == 2)
                     pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image3.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
 
-                numImages++;
+                numImages++;*/
             }
 
             //de-selecting selected image
