@@ -62,6 +62,9 @@ namespace QuickNote
         //Hyperlink object
         LinkLabel dynamicLinkLabel = new LinkLabel();
 
+        //keeps track of the number of images
+        int numImages = 0;
+
         /// <summary>
         /// Initializes graphics panel and pen for drawing. 
         /// </summary>
@@ -576,7 +579,40 @@ namespace QuickNote
                 } 
 
                 textWriter.Close();
-                
+
+                int count = 0;
+                if (numImages == 0)
+                {
+                    using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\image4.bmp"))
+                    { // something is broken here
+                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
+                        count++;
+
+                    }
+                }
+
+                if (numImages == 1)
+                {
+                    using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\image4.bmp"))
+                    {
+                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
+                        count++;
+                    }
+                }
+
+                if (numImages == 2)
+                {
+                    using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\image4.bmp"))
+                    {
+                        pictureBoxes[count].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // this should work once the previous line is fixed
+                        count++;
+                    }
+                }
+                using (FileStream fs = File.Create(@"A:\AA--UW-STOUT\numImages.txt"))
+                {
+                    Byte[] result = BitConverter.GetBytes(count);
+                    fs.Write(result, 0, result.Length);
+                }
             }
 
             
@@ -732,6 +768,50 @@ namespace QuickNote
                     }
                 }
                 textReader.Close();
+                int numImages = 0;
+                /*UTF8Encoding temp = new UTF8Encoding(true);
+                using (FileStream fs = File.OpenRead(@"A:\AA--UW-STOUT\numImages.txt")) {
+                    Byte[] b = new Byte[1024];
+                    while (fs.Read(b, 0, b.Length) > 0) {
+                        Console.WriteLine(temp.GetString(b));
+                    }
+                    numImages = Convert.ToInt32(b);
+                }*/
+
+                fileName = @"A:\AA--UW-STOUT\image1.bmp";
+                PictureBox pictureBox = new PictureBox
+                {
+                    Name = "pictureBox",
+                    Location = new Point(100, 100),
+                    Visible = true,
+                    Image = Bitmap.FromFile(fileName),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    Anchor = (AnchorStyles.Top | AnchorStyles.Left)
+                };
+
+                pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown_1);
+                pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove_1);
+                pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
+                this.Controls.Add(pictureBox);
+                pictureBox.Show();
+                pictureBox.BringToFront();
+                MainToolStrip.BringToFront();
+                pictureBoxes.Add(pictureBox);
+                /*
+                if (numImages == 0)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+                if (numImages == 1)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image2.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+                if (numImages == 2)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image3.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+                */
+                numImages++;
+                //de-selecting selected image
+                selectedImageIndex = -1;
+                for (int i = 0; i < pictureBoxes.Count; i++)
+                {
+                    pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.None;
+                }
             }
         }
 
@@ -768,6 +848,14 @@ namespace QuickNote
                 pictureBox.BringToFront();
                 MainToolStrip.BringToFront();
                 pictureBoxes.Add(pictureBox);
+                if (numImages == 0)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image1.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+                if (numImages == 1)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image2.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+                if (numImages == 2)
+                    pictureBoxes[numImages].Image.Save(@"A:\AA--UW-STOUT\image3.bmp", System.Drawing.Imaging.ImageFormat.Bmp); // testing purposes only
+
+                numImages++;
             }
 
             //de-selecting selected image
