@@ -660,7 +660,7 @@ namespace QuickNote
         /// <param name="e"> Contains the function's event data. </param>
         private void clearNoteButton_Click(object sender, EventArgs e)
         {
-            graphics.Clear(MainTextBox.BackColor);
+            graphics.Clear(Color.White);
             MainTextBox.Clear();
             MainTextBox.Focus();
             Drawings = new List<Drawing>();
@@ -672,13 +672,14 @@ namespace QuickNote
         /// <param name="sender">A reference to the object that raised the event. </param>
         /// <param name="e"> Contains the function's event data. </param>
         private void LoadButton_Click(object sender, EventArgs e)
-        {      
+        {
             String line;
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //clearing notesheet
                 MainTextBox.Text = "";
+                graphics.Clear(Color.White);
 
                 fileName = fileDialog.FileName;
                 System.IO.TextReader textReader = new System.IO.StreamReader(fileName);
@@ -756,7 +757,7 @@ namespace QuickNote
                                 Point startPoint = new Point(xStart, yStart);
                                 Point endPoint = new Point(xEnd, yEnd);
                                 graphics.DrawLine(pen, startPoint, endPoint);
-
+                                Drawings.Add(new Drawing(startPoint, endPoint, pen.Color, pen.Width));
                             }
 
                             catch(Exception)
@@ -812,6 +813,8 @@ namespace QuickNote
                 {
                     pictureBoxes[i].BorderStyle = System.Windows.Forms.BorderStyle.None;
                 }*/
+
+                //locking the main text box
             }
         }
 
