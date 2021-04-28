@@ -376,6 +376,11 @@ namespace QuickNote
             {
                 BulletButton.BackColor = Color.White;
             }
+
+            if(HyperlinkButton.BackColor == Color.Silver)
+            {
+                textBox1.Text = MainTextBox.SelectedText;
+            }
         }
 
         /// <summary>
@@ -982,6 +987,16 @@ namespace QuickNote
             }
         }
 
+        /// <summary>
+        /// Opens a website with the adress of the indicated hyperlink when a hyperlink is 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
+
     private void EditImageButton_Click(object sender, EventArgs e)
     {
         if (selectedImageIndex != -1)
@@ -991,43 +1006,90 @@ namespace QuickNote
         }
     }
 
-        //Method to enable all calendar features when clicked.
+        /// <summary>
+        /// Method to enable all calendar features when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalendarButton_Click(object sender, EventArgs e)
         {
-            monthCalendar1.Visible = true;
+            if(CalendarButton.BackColor == Color.White)
+            {
+                monthCalendar1.Visible = true;
 
-            CalendarButton.DoubleClick += clicked;
-            CalendarButton.BackColor = Color.Silver;
+                CalendarButton.DoubleClick += clicked;
+                CalendarButton.BackColor = Color.Silver;
+            }
+
+            else
+            {
+                monthCalendar1.Visible = false;
+                CalendarButton.BackColor = Color.White;   
+            }
         }
-        //Method to disable and reset calendar button when double clicked
+
+        /// <summary>
+        /// Old method to disable and reset calendar button when double clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clicked(object sender, EventArgs e)
         {
-
             monthCalendar1.Visible = false;
             CalendarButton.BackColor = Color.White;
         }
-        //Method to disable hyperlink when it is double clicked by user.
+
+        //OLD
+        /// <summary>
+        /// Method to disable hyperlink when it is double clicked by user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clickedHyper(object sender, EventArgs e)
         {
             HyperlinkButton.BackColor = Color.White;
             linkLabel1.Visible = false;
             textBox1.Visible = false;
         }
-        //Method to show hyperlink when clicked and allows user to enter in a website name and apply it during runtime.
+
+        /// <summary>
+        /// Method to show hyperlink when clicked and allows user to enter in a website name and apply it during runtime.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HyperlinkButton_Click_1(object sender, EventArgs e)
         {
-            linkLabel1.Visible = true;
-            textBox1.Visible = true;
-            HyperlinkButton.DoubleClick += clickedHyper;
-            HyperlinkButton.BackColor = Color.Silver;
+            if(HyperlinkButton.BackColor == Color.White)
+            {
+                linkLabel1.Visible = true;
+                textBox1.Visible = true;
+                HyperlinkButton.DoubleClick += clickedHyper;
+                HyperlinkButton.BackColor = Color.Silver;
+            }
+
+            else
+            {
+                HyperlinkButton.BackColor = Color.White;
+                linkLabel1.Visible = false;
+                textBox1.Visible = false;
+            }
         }
-        //Clickable link that takes the user to a valid website or does nothing if site is invalid.
+
+        /// <summary>
+        /// Clickable link that takes the user to a valid website or does nothing if site is invalid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             dynamicLinkLabel.LinkVisited = true;
             try
             {
-                System.Diagnostics.Process.Start("http://www." + textBox1.Text + ".com");
+                //Automatically places www. and .com at the start and end of the link respectively
+                //System.Diagnostics.Process.Start("http://www." + textBox1.Text + ".com");
+
+                //Uses the exact text in the text box
+                System.Diagnostics.Process.Start(textBox1.Text);
             }
             catch (Exception)
             {
