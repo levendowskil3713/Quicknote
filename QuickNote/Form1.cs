@@ -578,6 +578,7 @@ namespace QuickNote
                 System.IO.TextWriter textWriter = new System.IO.StreamWriter(fileName);
                 textWriter.WriteLine();
                 textWriter.WriteLine(MainTextBox.Text);
+                //textWriter.WriteLine(MainTextBox.Rtf);
 
                 //saving drawings
                 textWriter.WriteLine();
@@ -714,7 +715,7 @@ namespace QuickNote
                     if(isDrawing == false)
                     {
                           try
-                          {
+                          {        
                               MainTextBox.AppendText(line);
                           }
                           catch(Exception)
