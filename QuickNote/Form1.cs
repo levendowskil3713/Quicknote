@@ -551,7 +551,7 @@ namespace QuickNote
         /// <param name="e"> Contains the function's event data. </param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
+            SaveFileDialog fileDialog = new SaveFileDialog();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) 
             {
                 //saving text
