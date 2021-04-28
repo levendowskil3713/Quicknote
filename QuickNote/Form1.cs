@@ -81,15 +81,19 @@ namespace QuickNote
             pen = new Pen(Color.Black, 5);
             EraserButton.Enabled = false;
 
-            //disables unfinished tools
+            //disables unfinished or unused tools
             ImportImageButton.Enabled = false;
             EditImageButton.Enabled = false;
             HyperlinkButton.Enabled = false;
+            NumberButton.Enabled = false;
             ImportImageButton.Visible = false;
             EditImageButton.Visible = false;
             HyperlinkButton.Visible = false;
             toolStripSeparator4.Visible = false;
             toolStripSeparator5.Visible = false;
+            NumberButton.Visible = false;
+            
+            
         }
 
         /// <summary>

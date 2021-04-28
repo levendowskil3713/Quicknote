@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>QuickNote Logo Large.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -128,6 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Underline Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuickNote Logo Large.ico" />
+    <Content Include="QuickNote Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

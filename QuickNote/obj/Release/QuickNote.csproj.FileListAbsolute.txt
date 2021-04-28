@@ -1,0 +1,10 @@
+C:\Programming\QuickNote\Quicknote\QuickNote\bin\Release\QuickNote.exe.config
+C:\Programming\QuickNote\Quicknote\QuickNote\bin\Release\QuickNote.exe
+C:\Programming\QuickNote\Quicknote\QuickNote\bin\Release\QuickNote.pdb
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.csprojAssemblyReference.cache
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.MainForm.resources
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.Properties.Resources.resources
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.csproj.GenerateResource.cache
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.csproj.CoreCompileInputs.cache
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.exe
+C:\Programming\QuickNote\Quicknote\QuickNote\obj\Release\QuickNote.pdb
