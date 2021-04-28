@@ -20,7 +20,7 @@ namespace QuickNote
         float fontSize = 11;
         //the style of the currently selected font (unused)
         //the thickness of lines created via the drawing tool
-        float penSize;
+        float penSize = 4;
         //Object that stores lines created via the drawing tool
         Graphics graphics;
         int x = -1;
